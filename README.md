@@ -8,11 +8,9 @@ SAP Landscape Management (LaMa) is an orchestration solution to simplify, automa
 
 
 ## How to obtain support
-[Create an issue](./issues) in this repository if you find a bug or have questions about the content.
+[Create an issue](https://github.com/SAP-samples/landscape-management-sample-scripts/issues) in this repository if you find a bug or have questions about the content.
  
-For additional support, [ask a question in SAP Community](https://answers.sap.com/questions/ask.html) and use the tag "[SAP Landscape Management](https://answers.sap.com/tags/73554900100700001039)" or "[SAP Landscape Management Cloud](https://answers.sap.com/tags/73554900100700002701)".
-
-More information about SAP Landscape Management is available on the SAP Community pages of the [LaMa Enterprise Edition](https://community.sap.com/topics/landscape-management) or [LaMa Cloud](https://community.sap.com/topics/landscape-management-cloud) and the [SAP.com product page](https://www.sap.com/products/business-technology-platform/landscape-management.html). 
+For additional support, [ask a question in SAP Community](https://answers.sap.com/questions/ask.html) and use the tag "[SAP Landscape Management](https://answers.sap.com/tags/73554900100700001039)" or "[SAP Landscape Management Cloud](https://answers.sap.com/tags/73554900100700002701)". More information about SAP Landscape Management is available on the SAP Community pages of the [LaMa Enterprise Edition](https://community.sap.com/topics/landscape-management) or [LaMa Cloud](https://community.sap.com/topics/landscape-management-cloud) and the [SAP.com product page](https://www.sap.com/products/business-technology-platform/landscape-management.html). 
 
 ## Contributing
 If you wish to contribute code, offer fixes or improvements, please send a pull request. Due to legal reasons, contributors will be asked to accept a Developer Certificate of Origin (DCO) when they create the first pull request to this project. This happens in an automated fashion during the submission process. SAP uses [the standard DCO text of the Linux Foundation](https://developercertificate.org/).
