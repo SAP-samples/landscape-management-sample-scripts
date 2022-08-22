@@ -14,8 +14,14 @@ The name(s) of the user(s) that will be assigned the given user rights (Paramter
 A list of user rights (Se*).
 
 ## EXAMPLES
-* `.\Add-UserRightsAssignment.ps1 -Username "contoso.com\user1", "contoso.com\user2", "MyLocalSvcUser" -SecuritySetting SeServiceLogonRight` This example assings the user right SeServiceLogonRight to the domain users contoso.com\user1 and contoso.com\user2 and the local user MyLocalSvcUser
-* `.\Add-UserRightsAssignment.ps1 -Username "contoso.com\user3" -SecuritySetting SeNetworkLogonRight, SeDenyInteractiveLogonRight` This example assings the user rights SeNetworkLogonRight and SeDenyInteractiveLogonRight to the domain user contoso.com\user3
+* This example assings the user right SeServiceLogonRight to the domain users contoso.com\user1 and contoso.com\user2 and the local user MyLocalSvcUser
+    ```shell
+    .\Add-UserRightsAssignment.ps1 -Username "contoso.com\user1", "contoso.com\user2", "MyLocalSvcUser" -SecuritySetting SeServiceLogonRight
+    ``` 
+* This example assings the user rights SeNetworkLogonRight and SeDenyInteractiveLogonRight to the domain user contoso.com\user3
+    ```
+    .\Add-UserRightsAssignment.ps1 -Username "contoso.com\user3" -SecuritySetting SeNetworkLogonRight, SeDenyInteractiveLogonRight
+    ``` 
 
 ## LINK
 [Local Security Policy - User Rights Assignment](https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/user-rights-assignment)
