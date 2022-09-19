@@ -60,3 +60,5 @@ e.g.:
 4. SYBASE_CLIENT_UPDATE
 5. Start PAS
 
+![Update Sybase DB](./screenshots/update_sybase.jpg)
+![Update Sybase Client](./screenshots/update_sybase_client.jpg)
