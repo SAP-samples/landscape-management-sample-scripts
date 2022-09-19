@@ -6,6 +6,8 @@
 <!ELEMENT services ((system*))>
 <!ELEMENT system ((dependencylist?, intersystemdependencies?, entityrelations?, j2eeconfig?, rfcdestination*,emailnotification?, customnotification?, solmansettings?, isolations*, custompropertylist?, mountlist?, additional_attributes*, characterizations?, service*))>
 <!ATTLIST system
+	systemid 				CDATA 	#REQUIRED
+	installationhost		CDATA 	#REQUIRED
 	systemtype				CDATA	#REQUIRED
 	release					CDATA	#REQUIRED
 	name 					CDATA 	#IMPLIED
