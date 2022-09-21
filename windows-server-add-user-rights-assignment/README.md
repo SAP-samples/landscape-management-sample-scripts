@@ -1,7 +1,7 @@
 # Add User Rights Assignment with Windows Server
 
 The `Add-UserRightsAssignment` cmdlet assigns a set of rights to one or more users by modifying the User Rights Assignments within the local security policy.
-For example, it can be used to automate the assignment of user rights, that are required to run SWPM (see [SAP Note #2515202](https://launchpad.support.sap.com/#/notes/2515202)).
+For example, it can be used to automate the assignment of user rights, that are required to run Software Provisioning Manager (SWPM) (see [SAP Note #2515202](https://launchpad.support.sap.com/#/notes/2515202)).
 
 ## PARAMETERS
 ### Username
