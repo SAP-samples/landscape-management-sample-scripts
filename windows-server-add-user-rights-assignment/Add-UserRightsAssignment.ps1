@@ -15,12 +15,18 @@
 .EXAMPLE
     .\Add-UserRightsAssignment.ps1 -Username "contoso.com\user1", "contoso.com\user2", "MyLocalSvcUser" -SecuritySetting SeServiceLogonRight
 
-    This example assings the user right SeServiceLogonRight to the domain users contoso.com\user1 and contoso.com\user2 and the local user MyLocalSvcUser
+    This example assigns the user right SeServiceLogonRight to the domain users contoso.com\user1 and contoso.com\user2 and the local user MyLocalSvcUser
 
 .EXAMPLE
     .\Add-UserRightsAssignment.ps1 -Username "contoso.com\user3" -SecuritySetting SeNetworkLogonRight, SeDenyInteractiveLogonRight
 
-    This example assings the user rights SeNetworkLogonRight and SeDenyInteractiveLogonRight to the domain user contoso.com\user3
+    This example assigns the user rights SeNetworkLogonRight and SeDenyInteractiveLogonRight to the domain user contoso.com\user3
+
+.EXAMPLE
+    .\Add-UserRightsAssignment.ps1 -Username "contoso.com\SAPInstallUser" -SecuritySetting SeAssignPrimaryTokenPrivilege, SeIncreaseQuotaPrivilege, SeTcbPrivilege
+
+    This example assigns the user rights SeAssignPrimaryTokenPrivilege, SeIncreaseQuotaPrivilege and SeTcbPrivilege, required by SWPM, to the domain user contoso.com\SAPInstallUser.
+
 .LINK
     Local Security Policy - User Rights Assignment: https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/user-rights-assignment
 #>
