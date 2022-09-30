@@ -1,5 +1,5 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: SAP Landscape Management sample scripts
+Upstream-Name: landscape-management-sample-scripts
 Upstream-Contact: marco.dorn@sap.com
 Source: https://github.com/SAP-samples/landscape-management-sample-scripts
 Disclaimer: The code in this project may include calls to APIs ("API Calls") of
