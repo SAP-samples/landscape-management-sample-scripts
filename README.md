@@ -1,7 +1,6 @@
 # SAP Landscape Management sample scripts
-<!--- Register repository https://api.reuse.software/register, then add REUSE badge:
-[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/REPO-NAME)](https://api.reuse.software/info/github.com/SAP-samples/REPO-NAME)
--->
+
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/landscape-management-sample-scripts)](https://api.reuse.software/info/github.com/SAP-samples/landscape-management-sample-scripts)
 
 ## Description
 SAP Landscape Management (LaMa) is an orchestration solution to simplify, automate, and centralize the management and operations of your SAP landscapes running on premise, in the public or private cloud, or in hybrid environments. Within this repository, SAP, partners, and customers share sample scripts around automation of their SAP landscapes by using SAP Landscape Management Enterprise Edition and other tools. It is irrelevant if these scripts run inside the [Automation Studio](https://help.sap.com/docs/SAP_LANDSCAPE_MANAGEMENT_ENTERPRISE/e7dead4286c545808b3bd24feee7448c/110cb37a716946bcbd65eed9740bc9db.html?locale=en-US) or if they run outside of SAP Landscape Management and make use of [its API](https://api.sap.com/package/SAPLandscapeManagement/overview).
