@@ -1,0 +1,1269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE lvmconfiguration
+[
+
+<!ELEMENT services ((system*))>
+<!ELEMENT system ((dependencylist?, intersystemdependencies?, entityrelations?, j2eeconfig?, rfcdestination*,emailnotification?, customnotification?, solmansettings?, isolations*, custompropertylist?, mountlist?, additional_attributes*, characterizations?, service*))>
+<!ATTLIST system
+	systemid 				CDATA 	#REQUIRED
+	installationhost		CDATA 	#REQUIRED
+	systemtype				CDATA	#REQUIRED
+	release					CDATA	#REQUIRED
+	name 					CDATA 	#IMPLIED
+	description 			CDATA 	#IMPLIED
+	systemclonedescription	CDATA	#IMPLIED
+	assignedHanaCockpit		CDATA	#IMPLIED
+>
+<!ELEMENT isolations (isolation)+>
+<!ELEMENT isolation EMPTY>
+<!ATTLIST isolation
+	type 	(host|port) #REQUIRED
+	value 	CDATA 		#REQUIRED
+>
+<!ELEMENT service ((properties, entityusagetypes?, hostnames?, databaseproperties?, entityrelations?,instanceagentproperties?,instanceagentregistration?, requirements?, consumedresourcelist?, custompropertylist?, solmansettings?, xsaconnection?, mountlist?, additional_attributes?, cluster_attributes?,profile_parameters?, characterizations?))>
+<!ATTLIST service
+	acenabled 		(true | false) #REQUIRED
+	acmanaged 		(true | false) #REQUIRED
+	id 				CDATA 	#REQUIRED
+	name 			CDATA 	#IMPLIED
+	refpoolname 	CDATA 	#REQUIRED
+	systemid 		CDATA 	#REQUIRED
+	type 			(instance | database | customservice | aggregate | system) #REQUIRED
+	operational		(true | false) #IMPLIED
+	dbtype			CDATA	#IMPLIED
+	dbInstanceName  CDATA  #IMPLIED
+	servicetype		CDATA	#REQUIRED
+	installationhost CDATA 	#REQUIRED
+	instanceno		CDATA 	#IMPLIED
+	customservicename CDATA #IMPLIED
+	customservicetype CDATA #IMPLIED
+	instaslocalhost (true | false) #IMPLIED
+	communicationhost CDATA #IMPLIED
+	release			  CDATA #IMPLIED
+	lastusedhost	  CDATA #IMPLIED
+>
+<!ELEMENT resources ((resource)*)>
+<!ELEMENT resource ((entityusagetypes?, entityrelations?, hostagentproperties?, networkinterfaces?, resourcetype?,  additional_attributes*,cluster_attributes?,storage_properties* ,custompropertylist? ,characterizations?))>
+<!ATTLIST resource
+	acmanaged 		(true | false) #REQUIRED
+	id 				CDATA 	#REQUIRED
+	hostname 		CDATA 	#REQUIRED
+	refpoolname 	CDATA 	#REQUIRED
+	saps 			CDATA 	#REQUIRED
+	operational		(true | false) #IMPLIED
+>
+<!ELEMENT laMaSystemlist ((laMaSystem*))>
+<!ELEMENT laMaSystem  ((laMaSystem*))>
+<!ATTLIST laMaSystem
+	sid 			CDATA 	#REQUIRED
+	clientAccessUrl	CDATA 	#IMPLIED
+	usageType		CDATA 	#REQUIRED
+	version		    CDATA 	#IMPLIED
+	systemServiceId CDATA   #IMPLIED
+>
+<!ELEMENT characterizations ((characterization*))>
+
+<!ELEMENT characterization EMPTY>
+<!ATTLIST characterization
+	refname 			CDATA 	#REQUIRED
+	valuerefname		CDATA 	#REQUIRED
+>
+<!ELEMENT requirements ((resourcetype*))>
+<!ATTLIST requirements
+	memory 			CDATA 	#REQUIRED
+	saps 			CDATA 	#REQUIRED
+	preferredhost	CDATA	#IMPLIED
+>
+<!ELEMENT resourcetype EMPTY>
+<!ATTLIST resourcetype
+	addressspace 	CDATA 	#REQUIRED
+	cputype 		CDATA 	#REQUIRED
+	os 				CDATA 	#REQUIRED
+	osversion 		CDATA 	#REQUIRED
+	servicepackversion 		CDATA 	#IMPLIED
+>
+<!ELEMENT consumedresourcelist ((consumedresource*))>
+<!ELEMENT consumedresource EMPTY>
+<!ATTLIST consumedresource
+	type		 	CDATA 	#REQUIRED
+	value	 		CDATA 	#REQUIRED
+>
+<!ELEMENT custompropertylist ((customproperty*))>
+<!ELEMENT customproperty EMPTY>
+<!ATTLIST customproperty
+	key		 	CDATA 	#REQUIRED
+	value	 	CDATA 	#REQUIRED
+	secure	(true | false)  #IMPLIED
+	encrypted	(true | false) #IMPLIED
+>
+<!ELEMENT dependencylist ((dependency*))>
+<!ELEMENT dependency EMPTY>
+<!ATTLIST dependency
+	customdependencyoperationtype CDATA 	#REQUIRED
+	sourceserviceid		 	CDATA 	#REQUIRED
+	targetserviceid	 		CDATA 	#REQUIRED
+>
+<!ELEMENT intersystemdependencies ((intersystemdependency*))>
+<!ELEMENT intersystemdependency EMPTY>
+<!ATTLIST intersystemdependency
+	sourceservicetype		 	CDATA 	#REQUIRED
+	targetsystemserviceid 		CDATA 	#REQUIRED
+	targetservicetype	 		CDATA 	#REQUIRED	
+>
+
+<!ELEMENT entityrelations ((entityrelation*))>
+<!ELEMENT entityrelation EMPTY>
+<!ATTLIST entityrelation
+	entityrelationtype		 	CDATA 	#REQUIRED
+	targetentity 		        CDATA 	#REQUIRED
+	targetentitytype	 		CDATA 	#REQUIRED	
+	sourceentity	 	     	CDATA 	#REQUIRED	
+	sourceentitytype	 		CDATA 	#REQUIRED
+>
+
+<!ELEMENT j2eeconfig EMPTY>
+<!ATTLIST j2eeconfig
+  user				CDATA 	#REQUIRED
+  passwd			CDATA 	#IMPLIED
+  encryptedpasswd	(true | false) 	#IMPLIED 
+>
+
+<!ELEMENT rfcdestination EMPTY>
+<!ATTLIST rfcdestination
+	user				CDATA 	#REQUIRED
+	saprouter			CDATA 	#REQUIRED
+	hostname			CDATA 	#REQUIRED
+	instanceno			CDATA 	#REQUIRED
+	language			CDATA 	#REQUIRED
+	client				CDATA 	#REQUIRED
+	passwd				CDATA 	#IMPLIED
+	encryptedpasswd		(true | false) 	#IMPLIED
+	isPcaDestination	CDATA 	#IMPLIED
+	sncEnable			(true | false) 	#IMPLIED
+	sncPartnerName		CDATA 	#IMPLIED
+	sncQoP				CDATA 	#IMPLIED
+>
+<!ELEMENT emailnotification EMPTY>
+<!ATTLIST emailnotification
+	emailaddresses		CDATA 	#REQUIRED
+	encryptedmailaddress (true | false) #IMPLIED
+	completed			(true | false) #REQUIRED
+	failed				(true | false) #REQUIRED
+	canceled			(true | false) #REQUIRED
+	suspended			(true | false) #REQUIRED
+	waiting				(true | false) #REQUIRED
+	partiallyfailed     (true | false) #REQUIRED
+>
+<!ELEMENT customnotification EMPTY>
+<!ATTLIST customnotification
+	customnotificationname	CDATA 	#REQUIRED
+	completed			(true | false) #REQUIRED
+	failed				(true | false) #REQUIRED
+	canceled			(true | false) #REQUIRED
+	suspended			(true | false) #REQUIRED
+	waiting				(true | false) #REQUIRED
+	partiallyfailed     (true | false) #REQUIRED
+>
+<!ELEMENT solmansettings EMPTY>
+<!ATTLIST solmansettings
+	msgserver				CDATA 	#IMPLIED
+	port					CDATA 	#IMPLIED
+	issecured				(true | false) #IMPLIED
+	solutionmanagersystem	CDATA 	#IMPLIED
+	extendedid				CDATA 	#IMPLIED
+    solutionManagerRelease  CDATA 	#IMPLIED
+    solutionManagerSP       CDATA 	#IMPLIED
+    sldHost                 CDATA 	#IMPLIED
+    sldPort					CDATA 	#IMPLIED
+    sldPw					CDATA 	#IMPLIED
+    sldUseHttps             (true | false) #IMPLIED
+    sldUser 				CDATA 	#IMPLIED
+    solManConnectionType    (SOL_MAN_CONNECTION_TYPE_MS | SOL_MAN_CONNECTION_TYPE_DIRECT) #IMPLIED
+    solManHost				CDATA 	#IMPLIED
+    solManPort				CDATA 	#IMPLIED
+    solManPw				CDATA 	#IMPLIED
+    solManSapRoute			CDATA 	#IMPLIED
+    solManSapRouterPw		CDATA 	#IMPLIED 
+    solManUseSsl			(true | false) #IMPLIED 
+    solManUser				CDATA 	#IMPLIED
+    encryptedpasswd			(true | false) #IMPLIED    
+>
+<!ELEMENT xsaconnection EMPTY>
+<!ATTLIST xsaconnection
+	url						CDATA 	#IMPLIED
+	user					CDATA 	#IMPLIED
+	encryptedpasswd			(true | false) #IMPLIED
+	passwd					CDATA 	#IMPLIED
+	ignoreServerCertificate	(true | false) #IMPLIED
+    serviceKey  			CDATA 	#IMPLIED
+    httpProxy      			CDATA 	#IMPLIED
+>
+<!ELEMENT properties ((diagagent*))>
+<!ATTLIST properties
+	businessarea 	CDATA 	#IMPLIED
+	description 	CDATA 	#IMPLIED
+	servicegroup 	CDATA 	#IMPLIED
+>
+<!ELEMENT diagagent EMPTY>
+<!ATTLIST diagagent
+	systemid 		CDATA 	#REQUIRED
+	instanceno	 	CDATA 	#REQUIRED
+	instanceprofilepath 	CDATA	#IMPLIED
+	user 			CDATA 	#IMPLIED
+	passwd			CDATA 	#IMPLIED
+	encryptedpasswd			(true | false) #IMPLIED
+>
+<!ELEMENT primaryhostname EMPTY>
+<!ATTLIST primaryhostname
+	name 			CDATA 	#REQUIRED
+	refnetworkname 	CDATA 	#IMPLIED
+	vhosttype		CDATA	#IMPLIED
+	
+>
+<!ELEMENT pools ((pool*))>
+<!ELEMENT pool (custompropertylist?,authorizations?)>
+<!ATTLIST pool
+	name 			CDATA 	#REQUIRED
+	description 	CDATA 	#REQUIRED
+	parentid 		CDATA   #IMPLIED
+	iscontainer		CDATA	#IMPLIED
+>
+<!ELEMENT authorizations (authorization+)>
+<!ELEMENT authorization EMPTY>
+<!ATTLIST authorization
+	groupname 				CDATA 	#REQUIRED
+	systemreplicationOperations 		(true | false) #IMPLIED
+	systemreplicationdestroyOperations 	(true | false) #IMPLIED
+	serviceconfiguration		(true | false) #IMPLIED
+	resourceconfiguration		(true | false) #IMPLIED
+	startStopOperations			(true | false) #IMPLIED
+	prepareUnprepareOperations	(true | false) #IMPLIED
+	forcedOperations			(true | false) #IMPLIED
+	normalcustomOperations		(true | false) #IMPLIED
+	forcedcustomOperations		(true | false) #IMPLIED
+	criticalcustomOperations	(true | false) #IMPLIED
+	systemcloneOperations   	(true | false) #IMPLIED
+	systemcopyOperations    	(true | false) #IMPLIED
+	systemrenameOperations    	(true | false) #IMPLIED
+	systemdestroyOperations    	(true | false) #IMPLIED
+	systemrefreshOperations		(true | false) #IMPLIED
+	wlmadminOperations      	(true | false) #IMPLIED
+	scheduletask      			(true | false) #IMPLIED
+	multipleSystemOperation     (true | false) #IMPLIED
+	suppressValidation		    (true | false) #IMPLIED
+	templateConfiguration	    (true | false) #IMPLIED
+	templateExecution		    (true | false) #IMPLIED
+	templateScheduling		    (true | false) #IMPLIED
+	opTemplateManagement	    (true | false) #IMPLIED
+	opTemplateExecution		    (true | false) #IMPLIED
+	opTemplateScheduling		(true | false) #IMPLIED
+	customProcessManagement		(true | false) #IMPLIED
+	configureOthers 			(true | false) #IMPLIED
+	configureInfrastructue 		(true | false) #IMPLIED
+	applianceConfiguration 		(true | false) #IMPLIED
+	applianceProvisioning 		(true | false) #IMPLIED	
+	customprocessexecution 		(true | false) #IMPLIED	
+	forcedcustomprocessexecution (true | false) #IMPLIED	
+	criticalcustomprocessexecution (true | false) #IMPLIED	
+	hanaprocessexecution 		(true | false) #IMPLIED	
+	downloadlogs		 		(true | false) #IMPLIED	
+	activityManagement 			(true | false) #IMPLIED	
+	activityManagement 			(true | false) #IMPLIED	
+	pcaOperation				(true | false) #IMPLIED
+	rksOperation				(true | false) #IMPLIED
+	clusterOperations			(true | false) #IMPLIED
+>
+<!ELEMENT options (#PCDATA)>
+<!ELEMENT networks ((network*))>
+<!ELEMENT networkinterfaces ((interface*))>
+<!ELEMENT network ((assignments*))>
+<!ATTLIST network
+	broadcast 		CDATA 	#REQUIRED
+	name 			CDATA 	#REQUIRED
+	netmask 		CDATA 	#REQUIRED
+	gatewayServer	CDATA 	#IMPLIED
+	dnsZone			CDATA   #IMPLIED
+	revZone			CDATA	#IMPLIED
+	ttl				CDATA	#IMPLIED
+	ipRange			CDATA	#IMPLIED		
+>
+<!ELEMENT assignments EMPTY>
+<!ATTLIST assignments
+	dns				CDATA #IMPLIED
+	nisnameserver	CDATA #IMPLIED
+	ldapnameserver	CDATA #IMPLIED
+	ldapuserserver	CDATA #IMPLIED
+	nisuserserver	CDATA #IMPLIED
+	httpProxy		CDATA #IMPLIED
+	saprouter		CDATA #IMPLIED
+	oscategories	CDATA #IMPLIED
+>
+	
+
+<!ELEMENT mountpoint (#PCDATA)>
+<!ELEMENT mountlist ((mount*))>
+<!ATTLIST mountlist
+	automount 		(true | false) #REQUIRED
+>
+<!ELEMENT mount ((mountpoint, exportpath?, options?))>
+<!ATTLIST mount
+	fstype 			CDATA 	#IMPLIED
+	partnerid 		CDATA 	#IMPLIED
+	usage	 		CDATA 	#IMPLIED
+	storagetype 	(netfs | dfs | sr) #REQUIRED
+>
+<!ELEMENT interface EMPTY>
+<!ATTLIST interface
+	ifid 			CDATA 	#REQUIRED
+	refnetworkname 	CDATA 	#REQUIRED
+>
+<!ELEMENT instanceagentproperties EMPTY>
+<!ATTLIST instanceagentproperties
+	passwd 					CDATA 	#IMPLIED
+	port 					CDATA 	#IMPLIED
+	usehttps 				(true | false) #IMPLIED
+	user 					CDATA 	#IMPLIED
+	instanceprofilepath 	CDATA	#IMPLIED
+	encryptedpasswd			(true | false) #IMPLIED
+	clientCertAlias			CDATA #IMPLIED
+	httpProxy				CDATA #IMPLIED
+>
+<!ELEMENT instanceagentregistration EMPTY>
+<!ATTLIST instanceagentregistration
+	passwd 					CDATA 	#IMPLIED
+	user 					CDATA 	#IMPLIED
+	encryptedpasswd			(true | false) #IMPLIED
+>
+<!ELEMENT databaseproperties EMPTY>
+<!ATTLIST databaseproperties
+	dbname				CDATA	#REQUIRED
+	dbconfdir     		CDATA   #IMPLIED
+	passwd 				CDATA 	#IMPLIED
+	user 				CDATA 	#IMPLIED
+	dbSuperAdminUser	CDATA #IMPLIED
+	dbSuperAdminPw		CDATA #IMPLIED
+	sidadmPw			CDATA 	#IMPLIED
+	systemDBPw 		CDATA 	#IMPLIED
+	systemDBUser 		CDATA 	#IMPLIED
+	systemDBSuperAdminUser	CDATA #IMPLIED
+	systemDBSuperAdminPw		CDATA #IMPLIED
+	dbJavaSchemaUsrPw	CDATA #IMPLIED
+	dbJavaSchemaUsr		CDATA #IMPLIED
+	dbABAPSchemaUsrPw	CDATA #IMPLIED
+	dbABAPSchemaUsr		CDATA #IMPLIED
+	encryptedpasswd		(true | false) #IMPLIED
+>
+<!ELEMENT hostnames ((primaryhostname?, hostname*))>
+<!ELEMENT hostname EMPTY>
+<!ATTLIST hostname
+	name 			CDATA 	#REQUIRED
+	refnetworkname 	CDATA 	#REQUIRED
+	vhosttype		CDATA	#IMPLIED
+>
+<!ELEMENT hostagentproperties EMPTY>
+<!ATTLIST hostagentproperties
+	usedefaultcredentials (true | false) #REQUIRED
+	passwd 			CDATA 	#IMPLIED
+	port 			CDATA 	#IMPLIED
+	usehttps 		(true | false) #IMPLIED
+	user 			CDATA 	#IMPLIED
+	encryptedpasswd			(true | false) #IMPLIED
+	clientCertAlias	CDATA #IMPLIED
+	httpProxy		CDATA #IMPLIED
+>
+<!ELEMENT exportpath (#PCDATA)>
+<!ELEMENT characteristics ((characteristic*))>
+<!ELEMENT characteristic ((charc_properties?,characteristicvalue*))>
+<!ELEMENT charc_properties ((charc_property*))>
+<!ELEMENT charc_property EMPTY>
+<!ATTLIST charc_property
+	key				CDATA	#REQUIRED
+	value			CDATA	#REQUIRED>
+<!ATTLIST characteristic
+	cardinality		(ZERO_TO_ONE | ZERO_TO_MANY | ONE_TO_MANY | ONE) #REQUIRED
+	description		CDATA 	#REQUIRED 
+	name			CDATA 	#REQUIRED 
+	instances 		(true | false) #REQUIRED
+	resources		(true | false) #REQUIRED
+	systems			(true | false) #REQUIRED
+	virtualresources (true | false) #REQUIRED
+	virtualproviders (true | false) #REQUIRED
+>
+<!ELEMENT characteristicvalue ((charc_properties?))>
+<!ATTLIST characteristicvalue
+	description		CDATA 	#REQUIRED 
+	name			CDATA 	#REQUIRED 
+>
+<!ELEMENT operationparameter EMPTY>
+<!ATTLIST operationparameter
+	name			CDATA 	#REQUIRED 
+	label			CDATA 	#IMPLIED
+	description		CDATA 	#IMPLIED
+	typeId			CDATA 	#REQUIRED
+	encrypted	(true | false) 	#IMPLIED
+	configValue		CDATA 	#IMPLIED
+	isOptional		CDATA 	#IMPLIED
+	isSecure		CDATA 	#IMPLIED
+	isMultiValue    CDATA   #IMPLIED
+	index			CDATA		#IMPLIED
+>
+
+
+<!ELEMENT operationdefault EMPTY>
+<!ATTLIST operationdefault
+	name			CDATA 	#REQUIRED
+	encrypted	(true | false) #IMPLIED 
+	defaultValue	CDATA 	#IMPLIED
+>
+
+<!ELEMENT operationdefinition (operationparameter*,usedSecureProperty*, entityOrigin?)>
+<!ATTLIST operationdefinition
+	id		 	CDATA 	#REQUIRED
+	type 		CDATA 	#REQUIRED
+	name 		CDATA	#IMPLIED
+	target 		CDATA 	#REQUIRED
+	entitytype	CDATA 	#IMPLIED
+	user		CDATA 	#IMPLIED
+	passwd		CDATA 	#IMPLIED
+	encryptedpasswd	(true | false) #IMPLIED
+	authentication		CDATA 	#IMPLIED
+	centralHost	CDATA	#IMPLIED
+	options		CDATA	#IMPLIED
+	customProperties		CDATA 	#IMPLIED
+>
+
+<!ELEMENT usedSecureProperty EMPTY>
+<!ATTLIST usedSecureProperty
+	name 		CDATA	#REQUIRED
+>
+<!ELEMENT documentation (#PCDATA) >
+
+<!ELEMENT operationhook (constraint*,operationdefault*,documentation?, entityOrigin?)>
+<!ATTLIST operationhook
+	id		 	CDATA 	#REQUIRED
+	type 		CDATA 	#REQUIRED
+	description CDATA	#IMPLIED
+	dynamicCaption CDATA	#IMPLIED
+	entitytype  CDATA	#REQUIRED
+	targetEntityState  CDATA	#IMPLIED
+	isNotAllowedForStandaloneExecution  CDATA	#IMPLIED
+	index		CDATA	#IMPLIED
+	options		CDATA	#IMPLIED
+	permission	CDATA	#IMPLIED
+	grouphookname	CDATA #REQUIRED
+	ref_definitionname	CDATA #REQUIRED
+	url			CDATA   #IMPLIED
+	ref_defaultProviderName CDATA #IMPLIED
+	execUser 	CDATA 	#IMPLIED
+	execPwdRef  CDATA	#IMPLIED
+>
+<!ELEMENT customNotifications (customNotification*)>
+<!ELEMENT customNotification (operationdefault*,entityOrigin?)>
+<!ATTLIST customNotification
+	id		 	CDATA 	#REQUIRED
+	type 		CDATA 	#REQUIRED
+	description CDATA	#IMPLIED
+	entitytype  CDATA	#REQUIRED
+	index		CDATA	#IMPLIED
+	options		CDATA	#IMPLIED
+	permission	CDATA	#IMPLIED
+	grouphookname	CDATA #REQUIRED
+	ref_definitionname	CDATA #REQUIRED
+	url			CDATA   #IMPLIED
+>
+
+<!ELEMENT constraint (constraint*)>
+<!ATTLIST constraint
+	type		 	CDATA 	#REQUIRED
+	value	 		CDATA 	#REQUIRED
+	op				CDATA   #IMPLIED
+>
+
+<!ELEMENT customTabs (customTab*)>
+<!ELEMENT customTab EMPTY>
+<!ATTLIST customTab
+	name	 	   CDATA 	#REQUIRED
+	url 		   CDATA 	#REQUIRED
+	description	   CDATA	#IMPLIED
+	targetscreen   CDATA 	#REQUIRED
+	enable  	(true | false) #IMPLIED
+>
+<!ELEMENT lvmconfiguration ((laMaSystemlist?,custophooklist?, custompropertylist?, characteristics?, entityrelationtypes?, pools?, resources?, services?, acmconfigurations?, virtualizationmanagers?, tasks?, dipconfiguration?, acbaseconfiguration?, validationconfiguration?, infrastructure?, suppressvalidations?, repositories?, configuredAppliances?, templates?, operationTemplates?, scheduledTemplates?, bluePrints?, customProcesses?, viewrestrictions?, workingsets?, views?, defaultViews?, favorites?))>   
+<!ATTLIST lvmconfiguration
+	sourceSystem		CDATA   #IMPLIED
+	timestamp 			CDATA 	#IMPLIED
+	description 		CDATA 	#IMPLIED
+	generatorrelease 	CDATA 	#IMPLIED
+	version 			CDATA 	#REQUIRED
+	features			CDATA 	#IMPLIED
+	hash				CDATA	#IMPLIED
+>
+<!ELEMENT viewrestrictions (viewrestriction*)>
+<!ELEMENT viewrestriction EMPTY>
+<!ATTLIST viewrestriction
+	group	 	   CDATA 	#REQUIRED
+	views 		   CDATA 	#REQUIRED
+>
+<!ELEMENT infrastructure (list*, networks?, storagemanagers?, cloudmanagers?, javaPCAConfigurations?, httpProxies?)>
+<!ELEMENT list (listitem*)>
+<!ATTLIST list
+	name 	CDATA #REQUIRED
+>
+<!ELEMENT listitem (property*)>
+<!ELEMENT custophooklist ((operationdefinition*,operationhook*,customNotifications*,customTabs*))>
+<!ELEMENT additional_attributes (attribute*)>
+<!ELEMENT cluster_attributes (attribute*)>
+<!ELEMENT storage_properties (attribute*)>
+<!ELEMENT attribute EMPTY>
+<!ATTLIST attribute
+	key 	CDATA 				#REQUIRED
+	value 	CDATA 				#REQUIRED
+	secure	(true | false)  	#IMPLIED
+	encrypted	(true | false) 	#IMPLIED
+>
+<!ELEMENT profile_parameters (parameter*)>
+<!ELEMENT parameter EMPTY>
+<!ATTLIST parameter
+	key 	CDATA #REQUIRED
+	value 	CDATA #REQUIRED
+>
+<!ELEMENT virtualizationmanagers ((virtualizationmanager*))>
+<!ELEMENT virtualizationmanager ((additional_attributes?))>
+<!ATTLIST virtualizationmanager
+	label				CDATA 	#REQUIRED
+	url					CDATA	#REQUIRED
+	user				CDATA	#REQUIRED
+	passwd				CDATA	#REQUIRED
+	clientCertificateUsed	CDATA	#REQUIRED
+	encryptedpasswd		CDATA 	#REQUIRED
+	platformtypeid		CDATA 	#REQUIRED
+	monitoringInterval	CDATA 	#REQUIRED
+>
+<!ELEMENT cloudmanagers ((cloudmanager*))>
+<!ELEMENT cloudmanager ((additional_attributes?))>
+<!ATTLIST cloudmanager
+	label				CDATA 	#REQUIRED
+	url					CDATA	#REQUIRED
+	user				CDATA	#REQUIRED
+	passwd				CDATA	#REQUIRED
+	clientCertificateUsed	CDATA	#REQUIRED
+	encryptedpasswd		CDATA 	#REQUIRED
+	platformtypeid		CDATA 	#REQUIRED
+	monitoringInterval	CDATA 	#REQUIRED
+>
+<!ELEMENT storagemanagers ((storagemanager*))>
+<!ELEMENT storagemanager ((additional_attributes?,storagesystems?))>
+<!ATTLIST storagemanager
+	label				CDATA 	#REQUIRED
+	url					CDATA	#REQUIRED
+	user				CDATA	#REQUIRED
+	passwd				CDATA	#REQUIRED
+	clientCertificateUsed	CDATA	#REQUIRED
+	encryptedpasswd		CDATA 	#REQUIRED
+	platformtypeid		CDATA 	#REQUIRED
+	monitoringInterval	CDATA 	#REQUIRED
+>
+<!ELEMENT storagesystems ((storagesystem*))>
+<!ELEMENT storagesystem ((additional_attributes?))>
+<!ATTLIST storagesystem
+	id					CDATA 	#REQUIRED
+	name				CDATA	#REQUIRED
+	user				CDATA	#REQUIRED
+	passwd				CDATA	#REQUIRED
+	encryptedpasswd		CDATA 	#REQUIRED
+>
+<!ELEMENT javaPCAConfigurations ((javaPCAConfiguration*))>
+<!ELEMENT javaPCAConfiguration EMPTY>
+<!ATTLIST javaPCAConfiguration
+	label				CDATA 	#REQUIRED
+	url					CDATA	#REQUIRED
+	user				CDATA	#REQUIRED
+	passwd				CDATA	#REQUIRED
+	encryptedpasswd		CDATA 	#REQUIRED
+	proxyHost			CDATA 	#IMPLIED
+	proxyPost			CDATA 	#IMPLIED
+>
+<!ELEMENT httpProxies ((httpProxy*))>
+<!ELEMENT httpProxy EMPTY>
+<!ATTLIST httpProxy
+	label				CDATA 	#REQUIRED
+	hostname			CDATA	#REQUIRED
+	port				CDATA	#REQUIRED
+	user				CDATA	#IMPLIED
+	passwd				CDATA	#IMPLIED
+	encryptedpasswd		CDATA 	#IMPLIED
+>
+
+<!ELEMENT entityrelationtypes ((entityrelationtype*))>
+<!ELEMENT entityrelationtype ((sourceentities,targetentities))>
+<!ATTLIST entityrelationtype
+	name				CDATA 	#REQUIRED
+	description			CDATA	#IMPLIED
+	associationtype		CDATA	#IMPLIED
+	sourceentityrole	CDATA	#IMPLIED
+	targetentityrole	CDATA	#IMPLIED
+>
+<!ELEMENT sourceentities ((sourceentity*))>
+
+<!ELEMENT sourceentity EMPTY>
+<!ATTLIST sourceentity
+	entityname				CDATA 	#REQUIRED
+>
+
+<!ELEMENT targetentities ((targetentity*))>
+<!ELEMENT targetentity EMPTY>
+<!ATTLIST targetentity
+	entityname				CDATA 	#REQUIRED
+>
+
+<!ELEMENT dipconfiguration ((dipreleaseconfiguration*))>
+<!ELEMENT dipreleaseconfiguration ((additional_attributes?))>
+
+<!ELEMENT acbaseconfiguration ((acengineconfigdata?,acmonitoringconfigdata?,acappsconfigdata?,acemailnotificationconfigdata?, accustomnotificationconfigdata?, acwlmconfigdata?, lvmsyncconfigdata?))>
+<!ELEMENT acengineconfigdata (property*)>
+<!ELEMENT acmonitoringconfigdata (property*)>
+<!ELEMENT acappsconfigdata (property*)>
+<!ELEMENT acemailnotificationconfigdata (property*)>
+<!ELEMENT accustomnotificationconfigdata (property*)>
+<!ELEMENT acwlmconfigdata (property*)>
+<!ELEMENT lvmsyncconfigdata (property*)>
+<!ELEMENT property EMPTY>
+<!ATTLIST property
+   name CDATA #IMPLIED
+   value CDATA #IMPLIED
+   secure CDATA #IMPLIED
+>
+
+<!ELEMENT workingsets (workingset*)>
+<!ELEMENT workingset (selectedpools*)>
+<!ATTLIST workingset
+  user  CDATA #REQUIRED
+  name CDATA #REQUIRED
+  color CDATA #IMPLIED 
+  >
+
+<!ELEMENT selectedpools (selectedpool*)>
+<!ELEMENT selectedpool EMPTY>
+<!ATTLIST selectedpool
+  name  CDATA #REQUIRED
+  >
+  
+<!ELEMENT validationconfiguration ((generalproperties,validators))>
+<!ELEMENT generalproperties EMPTY>
+<!ATTLIST generalproperties
+   HAconnecttimeout CDATA #IMPLIED
+   HAsockettimeout CDATA #IMPLIED
+   IAconnecttimeout CDATA #IMPLIED
+   IAsockettimeout CDATA #IMPLIED
+   runtimevalidationdefaultinterval CDATA #IMPLIED
+   runtimevalidationenabled CDATA #IMPLIED
+   HAretrieveCIMDetails CDATA #IMPLIED
+>
+<!ELEMENT validationcategory EMPTY>
+<!ATTLIST validationcategory
+  name CDATA #REQUIRED
+  >
+<!ELEMENT validators (validator*)>
+<!ELEMENT validator (validationproperties?,validation*)>
+<!ATTLIST validator
+  key  CDATA #REQUIRED
+  name CDATA #REQUIRED
+  interval CDATA #REQUIRED 
+  useGlobalInterval CDATA #IMPLIED
+  >
+ <!ELEMENT validation (validationcategory*,constraint*)>
+ <!ATTLIST validation
+ 	key  CDATA #REQUIRED 
+ 	name CDATA #REQUIRED 
+ 	emailNotification CDATA #REQUIRED
+ 	emailaddresses CDATA #REQUIRED
+ 	encryptedmailaddress (true | false) #IMPLIED
+ 	customnotification CDATA #IMPLIED
+ 	customnotificationname CDATA #IMPLIED
+ 	severity CDATA #REQUIRED
+ 	enabled CDATA #REQUIRED
+ >
+<!ELEMENT validationproperties (valproperty*)>
+<!ELEMENT valproperty EMPTY>
+<!ATTLIST valproperty
+	key CDATA #REQUIRED
+	name CDATA #REQUIRED
+	value CDATA #REQUIRED
+	type CDATA #REQUIRED
+	useGlobalValue CDATA #IMPLIED
+>
+
+<!ELEMENT entityusagetypes ((entityusage+))>
+<!ELEMENT entityusage EMPTY>
+<!ATTLIST entityusage
+	usagetype CDATA #REQUIRED		
+>
+
+<!ELEMENT acmconfigurations ((acmconfiguration+))>
+<!ELEMENT acmconfiguration ((sysconfig?, slasconfig?))>
+
+<!ELEMENT sysconfig ((sysconfigsvc+))>
+<!ATTLIST sysconfig
+	systemId 				CDATA 	#REQUIRED
+	expirationInterval		CDATA 	#REQUIRED
+	automationLevel			(APPROVAL_BASED | AUTOMATIC)	#REQUIRED		
+>
+<!ELEMENT sysconfigsvc EMPTY>
+<!ATTLIST sysconfigsvc
+	systemId				CDATA 	#REQUIRED
+	serviceType				(DI) 	#REQUIRED
+	status					(ENABLED | DISABLED) #REQUIRED
+	minNoInstances			CDATA 	#REQUIRED
+	maxNoInstances			CDATA 	#REQUIRED	
+	logonGroups				CDATA 	#REQUIRED
+	gracefulShutdown		CDATA 	#REQUIRED
+	warmupPeriod			CDATA 	#REQUIRED
+>
+
+<!ELEMENT slasconfig ((slaconfig+))>
+<!ELEMENT slaconfig EMPTY>
+<!ATTLIST slaconfig
+    slaId					CDATA 	#REQUIRED
+    systemId				CDATA 	#REQUIRED
+    maxNoUsers				CDATA 	#REQUIRED
+    responseTime			CDATA 	#REQUIRED
+    status					(ACTIVE | INACTIVE) #REQUIRED
+    sladescription			CDATA	#IMPLIED
+>
+
+<!ELEMENT tasks ( taskOverview+ ) >
+<!ELEMENT taskOverview ( recurring, taskemailnotification?, taskcustomnotification?, taskActions) >
+<!ELEMENT taskActions ( taskAction+ ) >
+<!ELEMENT taskAction EMPTY >
+<!ELEMENT taskemailnotification EMPTY >
+<!ELEMENT taskcustomnotification EMPTY >
+<!ELEMENT recurring EMPTY >
+<!ATTLIST taskOverview
+	id					CDATA 	#REQUIRED
+	name				CDATA	#REQUIRED
+	type				CDATA	#REQUIRED 
+	date				CDATA 	#REQUIRED
+	time				CDATA 	#REQUIRED
+	user				CDATA 	#REQUIRED
+	status				CDATA 	#REQUIRED
+	resourceCheck		(true | false) 	#REQUIRED
+	ignoreValidation	(true | false) 	#IMPLIED
+	ignoreNotes			(true | false) 	#REQUIRED
+	note				CDATA 	#IMPLIED
+	ignoreISD			(true | false) 	#REQUIRED
+	ignoreDependency	(true | false) 	#REQUIRED
+	
+>
+<!ATTLIST recurring
+	value			(true | false) 	#REQUIRED
+	onSunday		(true | false) 	#IMPLIED	
+	onMonday		(true | false) 	#IMPLIED
+	onTuesday		(true | false) 	#IMPLIED
+	onWednesday		(true | false) 	#IMPLIED
+	onThursday		(true | false) 	#IMPLIED
+	onFriday		(true | false) 	#IMPLIED
+	onSaturday		(true | false) 	#IMPLIED
+>
+<!ATTLIST taskemailnotification
+	value			(true | false) 	#REQUIRED
+	successful		(true | false) 	#IMPLIED	
+	failed			(true | false) 	#IMPLIED
+	warning			(true | false) 	#IMPLIED
+	emailaddresses	CDATA 	#IMPLIED	
+>
+<!ATTLIST taskcustomnotification
+	value			(true | false) 	#REQUIRED
+	successful		(true | false) 	#IMPLIED	
+	failed			(true | false) 	#IMPLIED
+	warning			(true | false) 	#IMPLIED
+	customnotificationname 	CDATA 	#IMPLIED
+>
+<!ATTLIST taskAction
+	operation		CDATA 	#REQUIRED
+	operationType	CDATA 	#REQUIRED
+	serviceID		CDATA 	#REQUIRED
+	hostName		CDATA 	#REQUIRED
+	acenabled		(true | false) 	#REQUIRED
+	
+>
+<!ELEMENT suppressvalidations (suppressvalidation+ ) >
+<!ELEMENT suppressvalidation EMPTY>
+ <!ATTLIST suppressvalidation
+ 	entitytype  CDATA #REQUIRED 
+ 	id CDATA #REQUIRED 
+ 	validationKey CDATA #REQUIRED
+ 	validatorKey CDATA #REQUIRED
+ 	
+ >
+<!ELEMENT repositories (Repository+)>
+<!ELEMENT Repository (id?, name, hostName, type, mountData, hostOSType?, storageHostName?, userName?, userPWD?,alternativeHosts?)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT hostName (#PCDATA)>
+<!ELEMENT type (#PCDATA)>
+<!ELEMENT hostOSType (#PCDATA)>
+<!ELEMENT storageHostName (#PCDATA)>
+<!ELEMENT userName (#PCDATA)>
+<!ELEMENT userPWD (#PCDATA)>
+<!ELEMENT alternativeHosts (host+)>
+<!ELEMENT host (#PCDATA)>
+<!ELEMENT mountData (localPath, mountOptions?, mountOrderNumber, mountUsage, remotePath, storageType)>
+<!ATTLIST mountData
+	xmlns:xsi CDATA  #REQUIRED
+	xsi:type CDATA #REQUIRED
+>
+<!ELEMENT localPath (#PCDATA)>
+<!ELEMENT mountOptions (#PCDATA)>
+<!ELEMENT mountOrderNumber (#PCDATA)>
+<!ELEMENT mountUsage (#PCDATA)>
+<!ELEMENT remotePath (#PCDATA)>
+<!ELEMENT storageType (#PCDATA)>
+
+<!ELEMENT configuredAppliances (configuredAppliance+)>
+<!ELEMENT configuredAppliance (localId, repositoryId?, path, SAPSoftwareAppliance)>
+<!ELEMENT localId (#PCDATA)>
+<!ELEMENT repositoryId (#PCDATA)>
+<!ELEMENT path (#PCDATA)>
+
+<!ELEMENT templates (template+)>
+<!ELEMENT template ANY>
+<!ATTLIST template
+  id CDATA #REQUIRED
+  passwd CDATA #REQUIRED
+>
+
+<!ELEMENT SAPSoftwareAppliance (#PCDATA)>
+<!ATTLIST SAPSoftwareAppliance
+  version CDATA #IMPLIED
+>
+ 
+<!ELEMENT operationTemplates (operationTemplate*) >
+<!ELEMENT operationTemplate (entityBasedCustomProcess, entityOrigin?) >
+<!ELEMENT entityBasedCustomProcess (id, name, description?, processParameters?, operations) >
+<!ELEMENT description (#PCDATA) >
+<!ELEMENT processParameters (entry*) >
+<!ELEMENT operations (operation+) >
+<!ELEMENT operation (operatioMetadata, dependentOperations*) >
+<!ELEMENT operatioMetadata (id, operationParameters*, relationPath*, entities?, constraint?, operationValidity?, operationName, operationType?, securedOperationParameters*, entitySecuredOperationParameters*, input?) >
+<!ATTLIST operatioMetadata xmlns:xsi CDATA #REQUIRED >
+<!ATTLIST operatioMetadata xsi:type NMTOKEN #REQUIRED >
+<!ELEMENT operationName (#PCDATA) >
+<!ELEMENT operationType (#PCDATA) >
+<!ELEMENT operationValidity (#PCDATA) >
+<!ELEMENT operationParameters (entry*) >
+<!ELEMENT securedOperationParameters (entry*) >
+<!ELEMENT entitySecuredOperationParameters (entry*) >
+<!ELEMENT input (operationsInput*, operationsInputPerEntryEntity*, globalParametersInput*) >
+<!ELEMENT operationsInput (entry*) >
+<!ELEMENT operationsInputPerEntryEntity (entry*) >
+<!ELEMENT globalParametersInput (entry*) >
+<!ELEMENT values (entry*) >
+<!ELEMENT dependentOperations (#PCDATA) >
+<!ELEMENT entities (entity*) >
+<!ELEMENT entity (entityId, entityType, entityParameters) >
+<!ELEMENT entityId (#PCDATA) >
+<!ELEMENT entityType (#PCDATA) >
+<!ELEMENT entityParameters (entry*) >
+<!ELEMENT entry (key, value?) >
+<!ELEMENT key (#PCDATA) >
+<!ATTLIST key xmlns:xs CDATA #IMPLIED >
+<!ATTLIST key xsi:type CDATA #IMPLIED >
+<!ELEMENT value ANY >
+<!ATTLIST value xmlns:xs CDATA #IMPLIED >
+<!ATTLIST value xsi:type NMTOKEN #IMPLIED >
+ 
+<!ELEMENT scheduledTemplates ( scheduledTemplate* ) >
+<!ELEMENT scheduledTemplate ( task ) >
+<!ELEMENT task ( id, taskName, taskId, taskCounterId, designProcessId, designProcessType, description?, taskUser, taskStatus, taskEmailNotification?, taskCustomNotification?, cronEntry, startDate, endDate?, changeId? ) >
+<!ELEMENT taskName ( #PCDATA ) >
+<!ELEMENT taskId ( #PCDATA ) >
+<!ELEMENT taskCounterId ( #PCDATA ) >
+<!ELEMENT designProcessId ( #PCDATA ) >
+<!ELEMENT designProcessType ( #PCDATA ) >
+<!ELEMENT taskUser ( #PCDATA ) >
+<!ELEMENT taskStatus ( #PCDATA ) >
+<!ELEMENT taskEmailNotification ( enabled, stateArray*, emailAddresses* ) >
+<!ATTLIST taskEmailNotification xmlns:xsi CDATA #IMPLIED >
+<!ATTLIST taskEmailNotification xsi:type NMTOKEN #IMPLIED >
+<!ELEMENT taskCustomNotification ( enabled, stateArray*, notificationId? ) >
+<!ELEMENT enabled ( #PCDATA ) >
+<!ELEMENT stateArray ( #PCDATA ) >
+<!ELEMENT emailAddresses ( #PCDATA ) >
+<!ELEMENT notificationId ( #PCDATA ) >
+<!ELEMENT cronEntry ( #PCDATA ) >
+<!ELEMENT startDate ( #PCDATA ) >
+<!ELEMENT endDate ( #PCDATA ) >
+<!ELEMENT changeId ( #PCDATA ) >
+
+<!ELEMENT customProcesses ( customProcess* ) >
+<!ELEMENT customProcess ( relationBasedCustomProcess, entityOrigin? ) >
+<!ELEMENT relationBasedCustomProcess ( id, name, description?, processParameters, operations, constraint, isInternal, isNotAllowedForStandaloneExecution?, isNotReleased?, isMassOperationEnabled?, isCreatingMultipleActivities?, entityType?, processPermission?, innerPermissionsCheck?, globalParameters?, group?, index?, taskEmailNotification?, taskCustomNotification?) >
+
+<!ELEMENT bluePrints ( blueprint* ) >
+<!ELEMENT blueprint ( name, description?, operationBL, entityType, entityId?, isReleased, parametersJSON, constraint?, group?, index?, operationparameter*) >
+<!ELEMENT isReleased ( #PCDATA ) >
+<!ELEMENT operationBL ( #PCDATA ) >
+<!ELEMENT parametersJSON ( #PCDATA ) >
+
+<!ELEMENT globalParameters ( globalParameter* ) >
+<!ELEMENT globalParameter ( stepId, parameterName, name, parameterLinks?, stepsWithReplacedEntity?, defaultValue?, isHidden?) >
+<!ELEMENT parameterLinks ( parameterLink* ) >
+<!ELEMENT stepsWithReplacedEntity ( stepId* ) >
+<!ELEMENT parameterLink ( stepId, parameterName ) >
+<!ELEMENT stepId ( #PCDATA ) >
+<!ELEMENT parameterName ( #PCDATA ) >
+<!ELEMENT defaultValue ( #PCDATA ) >
+<!ELEMENT isHidden ( #PCDATA ) >
+<!ELEMENT isInternal ( #PCDATA ) >
+<!ELEMENT isNotAllowedForStandaloneExecution ( #PCDATA ) >
+<!ELEMENT isNotReleased ( #PCDATA ) >
+<!ELEMENT isMassOperationEnabled ( #PCDATA ) >
+<!ELEMENT isCreatingMultipleActivities ( #PCDATA ) >
+<!ELEMENT relationPath ( relationNode* ) >
+<!ELEMENT relationNode ( relationId?, relationName, roleInRelation ) >
+<!ELEMENT relationId ( #PCDATA ) >
+<!ELEMENT relationName ( #PCDATA ) >
+<!ELEMENT roleInRelation ( #PCDATA ) >
+<!ELEMENT processPermission ( #PCDATA ) >
+<!ELEMENT innerPermissionsCheck ( #PCDATA ) >
+<!ELEMENT group ( #PCDATA ) >
+<!ELEMENT index ( #PCDATA ) >
+
+<!ELEMENT favorites ( favorite* ) >
+<!ELEMENT favorite ( user, type, id ) >
+
+<!ELEMENT entityOrigin ( laMaReference* ) >
+<!ATTLIST entityOrigin
+	entityId						CDATA	#REQUIRED
+	entitytype						CDATA 	#REQUIRED
+	changeLogId						CDATA 	#REQUIRED
+	originType						CDATA 	#REQUIRED
+	timestamp						CDATA 	#REQUIRED
+>
+<!ELEMENT laMaReference ( #PCDATA ) >
+<!ATTLIST laMaReference
+	referenceType					CDATA	#REQUIRED
+	sid								CDATA	#REQUIRED
+>
+
+<!ELEMENT defaultViews ( defaultView* ) >
+<!ELEMENT defaultView ( viewId, viewType, user ) >
+
+<!ELEMENT views ( view* ) >
+<!ELEMENT view ( viewId, viewType, viewName, user?, filters, sortData, columns, nonVisibleDynamicColumns, tablePageSize?, expanded?) >
+<!ELEMENT viewId ( #PCDATA ) >
+<!ELEMENT viewType ( #PCDATA ) >
+<!ELEMENT viewName ( #PCDATA ) >
+<!ELEMENT user ( #PCDATA ) >
+<!ELEMENT filters ( filter* ) >
+<!ELEMENT filter ( filterType, filterValues, isVisible ) >
+<!ELEMENT filterType ( #PCDATA ) >
+<!ELEMENT filterValues ( filterValue* ) >
+<!ELEMENT filterValue ( #PCDATA ) >
+<!ELEMENT isVisible ( #PCDATA ) >
+<!ELEMENT sortData ( column, isAscending ) >
+<!ELEMENT isAscending ( #PCDATA ) >
+<!ELEMENT columns ( column* ) >
+<!ELEMENT column ( columnName, columnType, isVisible?, index? ) >
+<!ELEMENT columnName ( #PCDATA ) >
+<!ELEMENT columnType ( #PCDATA ) >
+<!ELEMENT nonVisibleDynamicColumns ( nonVisibleDynamicColumnName* ) >
+<!ELEMENT nonVisibleDynamicColumnName ( #PCDATA ) >
+<!ELEMENT tablePageSize ( #PCDATA ) >
+<!ELEMENT expanded ( #PCDATA ) >
+
+
+]>
+
+<lvmconfiguration description="Custom_SUMA" features="CIPHER_SHA_AND_AES,HASH_SHA512" generatorrelease="300_25_02" hash="C6456847381757AC51F341F12FABFDA85BDED2730189FEC064C9ED4D0766F88E14667F3B07421FE568EA961CCD0A6C04730B7B0E1220EB93A7A71A7C4819F2CADB679FF030E5D48312D8584431A52FC2" sourceSystem="LRL-lvmql-lrl" timestamp="2022-10-19 12:26:08.422" version="100">
+  <custophooklist>
+    <operationdefinition centralHost="awsql140" customProperties="" entitytype="8" id="9623a3c4-f16b-11ec-b7a9-000000d4cc5e" name="SUMA Reboot System" options="4176" target="SUMA_rebootsystems" type="HAOp">
+      <operationparameter configValue="--NO_force_reboot#--force_reboot" description="" isMultiValue="false" isOptional="true" isSecure="false" label="FORCE_REBOOT" name="FORCE_REBOOT" typeId="STRING_ARRAY" />
+    </operationdefinition>
+    <operationdefinition centralHost="awsql140" customProperties="" entitytype="8" id="74f8d362-f169-11ec-c19c-000000d4cc5e" name="SUMA Patch systems" options="4176" target="SUMA_patchsystems" type="HAOp" />
+    <operationdefinition centralHost="awsql140" customProperties="" entitytype="8" id="8eb3c20e-f164-11ec-94b9-000000d4cc5e" name="SUMA Check Status" options="4176" target="SUMA_checkstatus" type="HAOp">
+      <operationparameter configValue="" description="" isMultiValue="false" isOptional="false" isSecure="false" label="CHECK_TIMEOUT" name="CHECK_TIMEOUT" typeId="STRING" />
+      <operationparameter configValue="" description="" isMultiValue="false" isOptional="false" isSecure="false" label="CHECK_INTERVAL" name="CHECK_INTERVAL" typeId="STRING" />
+    </operationdefinition>
+    <operationdefinition centralHost="awsql140" customProperties="" entitytype="8" id="c2b336bc-f160-11ec-93b7-000000d4cc5e" name="SUMA Package Refresh" options="4176" target="SUMA_pkgrefresh" type="HAOp" />
+    <operationdefinition centralHost="awsql140" customProperties="" entitytype="8" id="fe454b50-f15f-11ec-9e83-000000d4cc5e" name="SUMA Check Host" options="4176" target="SUMA_checkhosts" type="HAOp" />
+    <operationhook description="SUMA Package Refresh" dynamicCaption="" entitytype="2" grouphookname="SUMA" id="f3a8ed79-f160-11ec-b4cc-000000d4cc5e" index="2" isNotAllowedForStandaloneExecution="true" options="9" permission="Service,Resource(SafeCustomOperation)" ref_definitionname="SUMA Package Refresh" targetEntityState="" type="0">
+      <constraint op="=" type="andContainer.common" value="true">
+        <constraint op="!" type="state.resource" value="unreachable" />
+      </constraint>
+    </operationhook>
+    <operationhook description="SUMA Check Hosts" dynamicCaption="" entitytype="2" grouphookname="SUMA" id="25d6881d-f160-11ec-a025-000000d4cc5e" index="1" isNotAllowedForStandaloneExecution="true" options="9" permission="Service,Resource(SafeCustomOperation)" ref_definitionname="SUMA Check Host" targetEntityState="" type="0">
+      <constraint op="=" type="andContainer.common" value="true">
+        <constraint op="!" type="state.resource" value="unreachable" />
+      </constraint>
+    </operationhook>
+    <operationhook description="SUMA Patch Systems" dynamicCaption="" entitytype="2" grouphookname="SUMA" id="84eaf3f3-f169-11ec-ccde-000000d4cc5e" index="5" isNotAllowedForStandaloneExecution="true" options="9" permission="Service,Resource(SafeCustomOperation)" ref_definitionname="SUMA Patch systems" targetEntityState="" type="0">
+      <constraint op="=" type="andContainer.common" value="true">
+        <constraint op="!" type="state.resource" value="unreachable" />
+      </constraint>
+    </operationhook>
+    <operationhook description="SUMA Check Status" dynamicCaption="" entitytype="2" grouphookname="SUMA" id="b0ee8dd7-f164-11ec-a033-000000d4cc5e" index="3" isNotAllowedForStandaloneExecution="true" options="9" permission="Service,Resource(SafeCustomOperation)" ref_definitionname="SUMA Check Status" targetEntityState="" type="0">
+      <constraint op="=" type="andContainer.common" value="true">
+        <constraint op="!" type="state.resource" value="unreachable" />
+      </constraint>
+    </operationhook>
+    <operationhook description="SUMA Reboot Systems" dynamicCaption="" entitytype="2" grouphookname="SUMA" id="bf39cbbb-f16b-11ec-b6c2-000000d4cc5e" index="6" isNotAllowedForStandaloneExecution="true" options="9" permission="Service,Resource(SafeCustomOperation)" ref_definitionname="SUMA Reboot System" targetEntityState="" type="0">
+      <constraint op="=" type="andContainer.common" value="true">
+        <constraint op="!" type="state.resource" value="unreachable" />
+      </constraint>
+    </operationhook>
+    <customTabs />
+  </custophooklist>
+  <entityrelationtypes>
+    <entityrelationtype associationtype="Association" description="" name="Systemlandscape" sourceentityrole="" targetentityrole="">
+      <sourceentities>
+        <sourceentity entityname="SYSTEM" />
+      </sourceentities>
+      <targetentities>
+        <targetentity entityname="SYSTEM" />
+      </targetentities>
+    </entityrelationtype>
+  </entityrelationtypes>
+  <customProcesses>
+
+   
+    <customProcess>
+      <relationBasedCustomProcess>
+    <id>c65b014b-1ee4-11ed-cbac-000000d4cc5e</id>
+    <name>SUMA OS reboot</name>
+    <processParameters />
+    <operations>
+        <operation>
+            <operatioMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="relationBasedCustomProcessOperationExportDataDTO">
+                <id>6</id>
+                <operationParameters />
+                <relationPath />
+                <constraint op="=" type="andContainer.common" value="true" />
+                <operationValidity>MANDATORY</operationValidity>
+                <operationName>SUMA Reboot Systems</operationName>
+                <operationType>CUSTOM</operationType>
+            </operatioMetadata>
+        </operation>
+        <operation>
+            <operatioMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="relationBasedCustomProcessOperationExportDataDTO">
+                <id>7</id>
+                <operationParameters />
+                <relationPath />
+                <constraint op="=" type="andContainer.common" value="true" />
+                <operationValidity>MANDATORY</operationValidity>
+                <operationName>SUMA Check Status</operationName>
+                <operationType>CUSTOM</operationType>
+            </operatioMetadata>
+            <dependentOperations>6</dependentOperations>
+        </operation>
+        <operation>
+            <operatioMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="relationBasedCustomProcessOperationExportDataDTO">
+                <id>8</id>
+                <operationParameters />
+                <relationPath />
+                <constraint op="=" type="andContainer.common" value="true" />
+                <operationValidity>MANDATORY</operationValidity>
+                <operationName>WaitSHA</operationName>
+                <operationType>INTERNAL</operationType>
+            </operatioMetadata>
+            <dependentOperations>7</dependentOperations>
+        </operation>
+    </operations>
+    <constraint op="=" type="andContainer.common" value="true">
+        <constraint op="!" type="state.resource" value="unreachable" />
+    </constraint>
+    <isInternal>false</isInternal>
+    <isNotAllowedForStandaloneExecution>false</isNotAllowedForStandaloneExecution>
+    <isNotReleased>false</isNotReleased>
+    <isMassOperationEnabled>true</isMassOperationEnabled>
+    <isCreatingMultipleActivities>false</isCreatingMultipleActivities>
+    <entityType>RESOURCE</entityType>
+    <processPermission>SafeCustomProcess(Execute)</processPermission>
+    <innerPermissionsCheck>GLOBAL</innerPermissionsCheck>
+    <globalParameters>
+        <globalParameter>
+            <stepId>6</stepId>
+            <parameterName>FORCE_REBOOT</parameterName>
+            <name>FORCE_REBOOT</name>
+            <parameterLinks />
+            <stepsWithReplacedEntity />
+            <defaultValue>--force_reboot</defaultValue>
+            <isHidden>false</isHidden>
+        </globalParameter>
+    </globalParameters>
+    <group>SUMA</group>
+    <index>1</index>
+</relationBasedCustomProcess>
+    </customProcess>
+ 
+	
+    <customProcess>
+      <relationBasedCustomProcess>
+    <id>0935218a-f165-11ec-c4fb-000000d4cc5e</id>
+    <name>SUMA OS Update &amp; reboot</name>
+    <processParameters />
+    <operations>
+        <operation>
+            <operatioMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="relationBasedCustomProcessOperationExportDataDTO">
+                <id>1</id>
+                <operationParameters />
+                <relationPath />
+                <constraint op="=" type="andContainer.common" value="true" />
+                <operationValidity>MANDATORY</operationValidity>
+                <operationName>SUMA Package Refresh</operationName>
+                <operationType>CUSTOM</operationType>
+            </operatioMetadata>
+        </operation>
+        <operation>
+            <operatioMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="relationBasedCustomProcessOperationExportDataDTO">
+                <id>2</id>
+                <operationParameters />
+                <relationPath />
+                <constraint op="=" type="andContainer.common" value="true" />
+                <operationValidity>MANDATORY</operationValidity>
+                <operationName>SUMA Check Status</operationName>
+                <operationType>CUSTOM</operationType>
+            </operatioMetadata>
+            <dependentOperations>1</dependentOperations>
+        </operation>
+        <operation>
+            <operatioMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="relationBasedCustomProcessOperationExportDataDTO">
+                <id>3</id>
+                <operationParameters />
+                <relationPath />
+                <constraint op="=" type="andContainer.common" value="true" />
+                <operationValidity>MANDATORY</operationValidity>
+                <operationName>SUMA Check Hosts</operationName>
+                <operationType>CUSTOM</operationType>
+            </operatioMetadata>
+            <dependentOperations>2</dependentOperations>
+        </operation>
+        <operation>
+            <operatioMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="relationBasedCustomProcessOperationExportDataDTO">
+                <id>4</id>
+                <operationParameters />
+                <relationPath />
+                <constraint op="=" type="andContainer.common" value="true">
+                    <constraint op="=" type="trans_NAME.commonResourceService" value="EXECUTE_PATCH=TRUE" />
+                </constraint>
+                <operationValidity>OPTIONAL</operationValidity>
+                <operationName>SUMA Patch Systems</operationName>
+                <operationType>CUSTOM</operationType>
+            </operatioMetadata>
+            <dependentOperations>3</dependentOperations>
+        </operation>
+        <operation>
+            <operatioMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="relationBasedCustomProcessOperationExportDataDTO">
+                <id>5</id>
+                <operationParameters />
+                <relationPath />
+                <constraint op="=" type="andContainer.common" value="true" />
+                <operationValidity>OPTIONAL</operationValidity>
+                <operationName>SUMA Check Status</operationName>
+                <operationType>CUSTOM</operationType>
+            </operatioMetadata>
+            <dependentOperations>4</dependentOperations>
+        </operation>
+        <operation>
+            <operatioMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="relationBasedCustomProcessOperationExportDataDTO">
+                <id>6</id>
+                <operationParameters />
+                <relationPath />
+                <constraint op="=" type="andContainer.common" value="true" />
+                <operationValidity>MANDATORY</operationValidity>
+                <operationName>SUMA Reboot Systems</operationName>
+                <operationType>CUSTOM</operationType>
+            </operatioMetadata>
+            <dependentOperations>5</dependentOperations>
+            <dependentOperations>3</dependentOperations>
+        </operation>
+        <operation>
+            <operatioMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="relationBasedCustomProcessOperationExportDataDTO">
+                <id>7</id>
+                <operationParameters />
+                <relationPath />
+                <constraint op="=" type="andContainer.common" value="true" />
+                <operationValidity>MANDATORY</operationValidity>
+                <operationName>SUMA Check Status</operationName>
+                <operationType>CUSTOM</operationType>
+            </operatioMetadata>
+            <dependentOperations>6</dependentOperations>
+        </operation>
+        <operation>
+            <operatioMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="relationBasedCustomProcessOperationExportDataDTO">
+                <id>8</id>
+                <operationParameters />
+                <relationPath />
+                <constraint op="=" type="andContainer.common" value="true" />
+                <operationValidity>MANDATORY</operationValidity>
+                <operationName>WaitSHA</operationName>
+                <operationType>INTERNAL</operationType>
+            </operatioMetadata>
+            <dependentOperations>7</dependentOperations>
+        </operation>
+    </operations>
+    <constraint op="=" type="andContainer.common" value="true">
+        <constraint op="!" type="state.resource" value="unreachable" />
+    </constraint>
+    <isInternal>false</isInternal>
+    <isNotAllowedForStandaloneExecution>false</isNotAllowedForStandaloneExecution>
+    <isNotReleased>false</isNotReleased>
+    <isMassOperationEnabled>true</isMassOperationEnabled>
+    <isCreatingMultipleActivities>false</isCreatingMultipleActivities>
+    <entityType>RESOURCE</entityType>
+    <processPermission>SafeCustomProcess(Execute)</processPermission>
+    <innerPermissionsCheck>GLOBAL</innerPermissionsCheck>
+    <globalParameters>
+        <globalParameter>
+            <stepId>2</stepId>
+            <parameterName>CHECK_TIMEOUT</parameterName>
+            <name>CHECK_TIMEOUT</name>
+            <parameterLinks>
+                <parameterLink>
+                    <stepId>7</stepId>
+                    <parameterName>CHECK_TIMEOUT</parameterName>
+                </parameterLink>
+                <parameterLink>
+                    <stepId>5</stepId>
+                    <parameterName>CHECK_TIMEOUT</parameterName>
+                </parameterLink>
+            </parameterLinks>
+            <stepsWithReplacedEntity />
+            <defaultValue>20</defaultValue>
+            <isHidden>false</isHidden>
+        </globalParameter>
+        <globalParameter>
+            <stepId>2</stepId>
+            <parameterName>CHECK_INTERVAL</parameterName>
+            <name>CHECK_INTERVAL</name>
+            <parameterLinks>
+                <parameterLink>
+                    <stepId>7</stepId>
+                    <parameterName>CHECK_INTERVAL</parameterName>
+                </parameterLink>
+                <parameterLink>
+                    <stepId>5</stepId>
+                    <parameterName>CHECK_INTERVAL</parameterName>
+                </parameterLink>
+            </parameterLinks>
+            <stepsWithReplacedEntity />
+            <defaultValue>30</defaultValue>
+            <isHidden>false</isHidden>
+        </globalParameter>
+        <globalParameter>
+            <stepId>6</stepId>
+            <parameterName>FORCE_REBOOT</parameterName>
+            <name>FORCE_REBOOT</name>
+            <parameterLinks />
+            <stepsWithReplacedEntity />
+            <defaultValue>--force_reboot</defaultValue>
+            <isHidden>false</isHidden>
+        </globalParameter>
+    </globalParameters>
+    <group>SUMA</group>
+    <index>2</index>
+</relationBasedCustomProcess>
+    </customProcess>
+  </customProcesses>
+</lvmconfiguration>

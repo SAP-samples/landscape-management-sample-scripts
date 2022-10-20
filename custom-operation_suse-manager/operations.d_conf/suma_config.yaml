@@ -1,0 +1,9 @@
+suma_host: <suseman>.local
+suma_user: sapbasisadm
+suma_password: ölajsdflj081415
+clone_vm_ip: 1.1.1.254
+delete_system: <hostname>
+ssh-user: root
+ssh-password: install12345!
+pillar_host: /srv/pillar/change-hostname/init.sls
+pillar_network: /srv/pillar/mynetworks/init.sls
