@@ -5,6 +5,10 @@
 ## Description
 SAP Landscape Management (LaMa) is an orchestration solution to simplify, automate, and centralize the management and operations of your SAP landscapes running on premise, in the public or private cloud, or in hybrid environments. Within this repository, SAP, partners, and customers share sample scripts around automation of their SAP landscapes by using SAP Landscape Management Enterprise Edition and other tools. It is irrelevant if these scripts run inside the [Automation Studio](https://help.sap.com/docs/SAP_LANDSCAPE_MANAGEMENT_ENTERPRISE/e7dead4286c545808b3bd24feee7448c/110cb37a716946bcbd65eed9740bc9db.html?locale=en-US) or if they run outside of SAP Landscape Management and make use of [its API](https://api.sap.com/package/SAPLandscapeManagement/overview).
 
+Other sample scripts for Automation Studio are included in various blogs that are listed in the link below. It is recommended that any future blog related to Automation Studio should host the sample scripts in GitHub and linked from the blogs.
+
+[List of Automation Studio Blogs](https://blogs.sap.com/2020/02/28/sap-landscape-management-lama-automation-studio/)
+
 ### Custom Operations
 
 See different types of custom operations which were requested by customer implementation services.
