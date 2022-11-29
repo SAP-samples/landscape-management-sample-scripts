@@ -3,16 +3,17 @@
 
 2. [Prerequisites](#Prerequisites)
 
-3. [Configuration](#Configuration)
+3. [YAML File](#YAML file)
 
+3. [XML File](#XML file)
 
 
 
 
 ## Description
-In LaMa Enterprise Edition SP25, a provider definition for calling REST API (outbound) has been added as a new feature. This new feature is described in the blog - URL that includes samples.
+In LaMa Enterprise Edition SP25, provider for calling REST API (outbound) has been added as a new feature. This new feature is described in the blog - URL that includes samples.
 
-Code sample and the xml file is stored here as described below.
+Code sample and the xml files are stored here as described below.
 
 Other related code samples prior to SP25 (inbound REST API, outbound API using scripts registered with hostagent) can be seen in the blogs below:
 
@@ -21,16 +22,22 @@ Other related code samples prior to SP25 (inbound REST API, outbound API using s
 [Outgoing API calls from SAP Landscape Management (LaMa) with Automation Studio](https://blogs.sap.com/2020/06/08/outgoing-api-calls-from-sap-landscape-management-lama-with-automation-studio/)
 
 ## Prerequisites
-You must ensure that you make the necessary changes in the provider definitions to use the correct URLs. The XML file uses dummy URLs and referring to the above blog you can identify the changes that are needed.
+You must ensure that you make the necessary changes in the provider definitions to use the correct URLs. The XML files use dummy URLs and referring to the above blog you can identify the changes that are needed.
 
 ## YAML file
-The file figlet.yml (located at ..) is the playbook used by Ansible AWX or Ansible Tower. This would be accessed directly via the URL xx
+The file figlet.yml (located in YAML Files folder) is the playbook used by Ansible AWX or Ansible Tower. This would be accessed directly via the URL -  https://github.com/SAP-samples/landscape-management-sample-scripts/tree/main/custom-operation_rest_api/YAML_Files/figlet_rpm.yml
 
-## XML file
-The XML file "xxx" can be imported into LaMa and have the custom operations and processes described in the samples sections of the above blog.
+## XML files
+The XML files (located in XML FIles folder) can be imported into LaMa and have the providers definitions, custom operations, and process described in the samples sections of the above blog.
 
 - Custom Operation: "My Execute AWX template"<br>
 Custom operation executed from an instance that makes REST API call to Ansible for executing the playbook to install the Linux utility "figlet", run the figlet command, and delete the Linux figlet utility. The provider definitions needed are part of this XML file
+
+- Custom Operation: "Post to Slack BEGIN"<br>
+Custom operation that posts a default message to a slack channel
+
+- Custom Operation: "Post to Slack CUSTOM"<br>
+Custom operation that posts a modifiable message to a slack channel
 
 - Custom Process: "Patch Demo"<br>
 Custom Process executed from an instance that performs steps to simulate an OS patching scenario. Instead of patching the operating system the Linux utility (figlet) will be installed and removed. The steps included are stop instance, post message to Slack (you will need to change the URL to match your own slack channel), execute the above custom operation, post another message to slack, and start the instance.
