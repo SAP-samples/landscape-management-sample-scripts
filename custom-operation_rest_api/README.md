@@ -11,7 +11,7 @@
 
 
 ## Description
-In LaMa Enterprise Edition SP25, provider for calling REST API (outbound) has been added as a new feature. This new feature is described in the blog - URL that includes samples.
+In LaMa Enterprise Edition SP25, provider for calling REST API (outbound) has been added as a new feature. This new feature is described in the blog - <Add URL> that includes samples.
 
 Code sample and the xml files are stored here as described below.
 
