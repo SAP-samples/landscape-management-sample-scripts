@@ -3,9 +3,9 @@
 
 2. [Prerequisites](#Prerequisites)
 
-3. [YAML File](#YAML file)
+3. [YAML_File](#YAML_File)
 
-3. [XML File](#XML file)
+3. [XML_Files](#XML_Files)
 
 
 
@@ -24,11 +24,11 @@ Other related code samples prior to SP25 (inbound REST API, outbound API using s
 ## Prerequisites
 You must ensure that you make the necessary changes in the provider definitions to use the correct URLs. The XML files use dummy URLs and referring to the above blog you can identify the changes that are needed.
 
-## YAML file
-The file figlet.yml (located in YAML Files folder) is the playbook used by Ansible AWX or Ansible Tower. This would be accessed directly via the URL -  https://github.com/SAP-samples/landscape-management-sample-scripts/tree/main/custom-operation_rest_api/YAML_Files/figlet_rpm.yml
+## YAML_File
+The file figlet.yml (located in YAML_Files folder) is the playbook used by Ansible AWX or Ansible Tower. This would be accessed directly via the URL -  https://github.com/SAP-samples/landscape-management-sample-scripts/tree/main/custom-operation_rest_api/YAML_Files/figlet_rpm.yml
 
-## XML files
-The XML files (located in XML FIles folder) can be imported into LaMa and have the providers definitions, custom operations, and process described in the samples sections of the above blog.
+## XML_Files
+The XML files (located in XML_Files folder) can be imported into LaMa and have the providers definitions, custom operations, and process described in the samples sections of the above blog.
 
 - Custom Operation: "My Execute AWX template"<br>
 Custom operation executed from an instance that makes REST API call to Ansible for executing the playbook to install the Linux utility "figlet", run the figlet command, and delete the Linux figlet utility. The provider definitions needed are part of this XML file
