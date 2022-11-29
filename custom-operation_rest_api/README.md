@@ -10,7 +10,9 @@
 
 
 ## Description
-WIP - New blog about REST Provider in LaMa SP25 to be published. Code samples and xml files will be stored here shortly after release.
+In LaMa Enterprise Edition SP25, a provider definition for calling REST API (outbound) has been added as a new feature. This new feature is described in the blog - URL that includes samples.
+
+Code sample and the xml file is stored here as described below.
 
 Other related code samples prior to SP25 (inbound REST API, outbound API using scripts registered with hostagent) can be seen in the blogs below:
 
