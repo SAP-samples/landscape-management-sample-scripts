@@ -28,9 +28,9 @@ The file figlet.yml (located at ..) is the playbook used by Ansible AWX or Ansib
 The XML file "xxx" can be imported into LaMa and have the custom operations and processes described in the samples sections of the above blog.
 
 - Custom Operation: "My Execute AWX template"<br>
-	&emsp;- Custom operation executed from an instance that makes REST API call to Ansible for executing the playbook to install the Linux utility "figlet", run the figlet command, and delete the Linux figlet utility. The provider definitions needed are part of this XML file
+Custom operation executed from an instance that makes REST API call to Ansible for executing the playbook to install the Linux utility "figlet", run the figlet command, and delete the Linux figlet utility. The provider definitions needed are part of this XML file
 
 - Custom Process: "Patch Demo"<br>
-	&emsp;- Custom Process executed from an instance that performs steps to simulate an OS patching scenario. Instead of patching the operating system the Linux utility (figlet) will be installed and removed. The steps included are stop instance, post message to Slack (you will need to change the URL to match your own slack channel), execute the above custom operation, post another message to slack, and start the instance.
+Custom Process executed from an instance that performs steps to simulate an OS patching scenario. Instead of patching the operating system the Linux utility (figlet) will be installed and removed. The steps included are stop instance, post message to Slack (you will need to change the URL to match your own slack channel), execute the above custom operation, post another message to slack, and start the instance.
 
 ![alt text](https://blogs.sap.com/wp-content/uploads/2022/11/custom1.png)
