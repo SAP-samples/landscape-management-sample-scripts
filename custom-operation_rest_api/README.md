@@ -13,13 +13,13 @@
 ## Description
 In LaMa Enterprise Edition SP25, provider for calling REST API (outbound) has been added as a new feature. This new feature is described in the blog below that includes samples.
 
-https://blogs.sap.com/2022/11/30/introducing-the-rest-api-provider-in-sap-landscape-enterprise-edition-lama/
+[SAP Landscape Management (LaMa) REST API Testing](https://blogs.sap.com/2022/11/30/introducing-the-rest-api-provider-in-sap-landscape-enterprise-edition-lama/)
 
 Code sample and the xml files are stored here as described below.
 
 Other related code samples prior to SP25 (inbound REST API, outbound API using scripts registered with hostagent) can be seen in the blogs below:
 
-[SAP Landscape Management (LaMa) REST API Testing](https://blogs.sap.com/2018/11/22/sap-landscape-management-lama-rest-api-testing/)
+[Introducing the REST API Provider in SAP Landscape Management Enterprise Edition (LaMa)](https://blogs.sap.com/2018/11/22/sap-landscape-management-lama-rest-api-testing/)
 
 [Outgoing API calls from SAP Landscape Management (LaMa) with Automation Studio](https://blogs.sap.com/2020/06/08/outgoing-api-calls-from-sap-landscape-management-lama-with-automation-studio/)
 
