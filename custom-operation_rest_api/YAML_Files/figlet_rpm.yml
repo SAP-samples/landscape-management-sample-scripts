@@ -1,0 +1,28 @@
+---
+- hosts: all
+  gather_facts: false
+  tasks:
+    - name: Download RPM
+      command: "wget --no-check-certificate -P /tmp https://ftp.lysator.liu.se/pub/opensuse/ports/aarch64/distribution/leap/15.3/repo/oss/x86_64/figlet-2.2.5-bp153.1.17.x86_64.rpm"
+      register: shell_out
+    - name: Print the output
+      debug:
+        msg: "{{ shell_out.stdout_lines }}"
+
+    - name: Install FIGlet
+      command: "sudo rpm -ivhp /tmp/figlet-2.2.5-bp153.1.17.x86_64.rpm"
+      register: shell_out
+    - name: Print the output
+      debug:
+        msg: "{{ shell_out.stdout_lines }}"
+        
+    - name: Try it out
+      command: "figlet LaMa Rocks!"
+      register: shell_out
+    - name: Print the output
+      debug:
+        msg: "{{ shell_out.stdout_lines }}"
+
+
+    - name: Remove FIGlet
+      command: "sudo rpm -e figlet"
