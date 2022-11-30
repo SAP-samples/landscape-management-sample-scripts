@@ -35,7 +35,7 @@ https://github.com/SAP-samples/landscape-management-sample-scripts/tree/main/cus
 The XML files (located in XML_Files folder) can be imported into LaMa and have the providers definitions, custom operations, and process described in the samples sections of the above blog.
 
 - Custom Operation: "My Execute AWX template"<br>
-Custom operation executed from an instance that makes REST API call to Ansible for executing the playbook to install the Linux utility "figlet", run the figlet command, and delete the Linux figlet utility. The provider definitions needed are part of this XML file
+Custom operation executed from an instance that makes REST API call to Ansible for executing the playbook to install the Linux utility "figlet", run the figlet command, and delete the Linux figlet utility. 
 
 - Custom Operation: "Post to Slack BEGIN"<br>
 Custom operation that posts a default message to a slack channel
