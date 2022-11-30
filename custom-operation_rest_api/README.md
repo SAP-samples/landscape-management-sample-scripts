@@ -27,7 +27,9 @@ Other related code samples prior to SP25 (inbound REST API, outbound API using s
 You must ensure that you make the necessary changes in the provider definitions to use the correct URLs. The XML files use dummy URLs and referring to the above blog you can identify the changes that are needed.
 
 ## YAML_File
-The file figlet.yml (located in YAML_Files folder) is the playbook used by Ansible AWX or Ansible Tower. This would be accessed directly via the URL -  https://github.com/SAP-samples/landscape-management-sample-scripts/tree/main/custom-operation_rest_api/YAML_Files/figlet_rpm.yml
+The file figlet.yml (located in YAML_Files folder) is the playbook used by Ansible AWX or Ansible Tower. This would be accessed directly from GitHub using the below URL:
+
+https://github.com/SAP-samples/landscape-management-sample-scripts/tree/main/custom-operation_rest_api/YAML_Files/figlet_rpm.yml
 
 ## XML_Files
 The XML files (located in XML_Files folder) can be imported into LaMa and have the providers definitions, custom operations, and process described in the samples sections of the above blog.
