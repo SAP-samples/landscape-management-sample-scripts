@@ -48,6 +48,8 @@ Custom operation that posts a modifiable message to a slack channel
 - Custom Process: "Patch Demo"<br>
 Custom Process executed from an instance that performs steps to simulate an OS patching scenario. Instead of patching the operating system the Linux utility (figlet) will be installed and removed. The steps included are stop instance, post message to Slack (you will need to change the URL to match your own slack channel), execute the above custom operation, post another message to slack, and start the instance.
 
+![alt text](https://blogs.sap.com/wp-content/uploads/2022/11/custom1.png)
+
 ## How_To_Download
 If you are not a regular GitHub user and just want to download the XML files, please follow the below steps (in contrast to using clone):
 
@@ -56,4 +58,4 @@ If you are not a regular GitHub user and just want to download the XML files, pl
 - Download ZIP
 - In the ZIP file the XML files are located in custom-operation_rest_api/XML_Files
 
-![alt text](https://blogs.sap.com/wp-content/uploads/2022/11/custom1.png)
+
