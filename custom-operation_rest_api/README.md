@@ -5,7 +5,9 @@
 
 3. [YAML_File](#YAML_File)
 
-3. [XML_Files](#XML_Files)
+4. [XML_Files](#XML_Files)
+
+5. [How_To_Download](#How_To_Download)
 
 
 
@@ -46,7 +48,8 @@ Custom operation that posts a modifiable message to a slack channel
 - Custom Process: "Patch Demo"<br>
 Custom Process executed from an instance that performs steps to simulate an OS patching scenario. Instead of patching the operating system the Linux utility (figlet) will be installed and removed. The steps included are stop instance, post message to Slack (you will need to change the URL to match your own slack channel), execute the above custom operation, post another message to slack, and start the instance.
 
-Note: If you are not a regular GitHub user and just want to download the XML files, please follow the below steps:
+## How_To_Download
+If you are not a regular GitHub user and just want to download the XML files, please follow the below steps (in contrast to using clone):
 
 - Go to the top level of the samples repository (https://github.com/SAP-samples/landscape-management-sample-scripts)
 - Click on the Green button ("<> Code")
