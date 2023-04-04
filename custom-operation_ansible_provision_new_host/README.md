@@ -21,9 +21,11 @@ WIP - More details to follow soon
 WIP - More details to follow soon
 
 ## YAML_File
-The file lama_create_vm.yaml (located in YAML_Files folder) is the playbook used by Ansible AWX or Ansible Tower. This would be accessed directly from GitHub using the below URL:
+The file lama_create_vm.yaml (located in YAML_Files folder) is the playbook used by Ansible AWX or Ansible Tower. AWX/Tower URL:
 
-xx
+https://github.com/SAP-samples/landscape-management-sample-scripts
+
+Playbook: custom-operation_ansible_provision_new_host/YAML_Files/lama_create_vm.yaml
 
 
 ## XML_Files
