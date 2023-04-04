@@ -1,0 +1,155 @@
+---
+- name: Using localhost
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Create a VM
+      amazon.aws.ec2_instance:
+        name: "{{ i_name }}"
+        instance_type: "{{ i_type }}"
+        image_id: "{{ i_ami }}"
+        key_name: "{{ i_keypair }}"
+        vpc_subnet_id: "{{ i_subnet }}"
+        security_group: "{{ i_secgrp }}"
+        region: us-east-1
+        state: started
+
+    - name: Get EC2 Info
+      amazon.aws.ec2_instance_info:
+        region: us-east-1
+        filters:
+          instance-state-name: running
+          tag:Name: "{{ i_name }}"
+      register: ec2_info
+
+    - name: Display private IP address
+      debug:
+        var: ec2_info.instances[0].private_ip_address
+
+    - name: Register host in AWX Inventory
+      uri:
+        url: "http://nm-awx:30080/api/v2/inventories/2/hosts/"
+        method: POST
+        user: "{{ awx_username }}"
+        password: "{{ awx_password }}"
+        return_content: true
+        force_basic_auth: true
+        status_code: [200, 201]
+        body:
+          name: "{{ ec2_info.instances[0].private_ip_address }}"
+          description: "{{ i_name + '_LaMa new host' }}"
+          variables: "ansible_python_interpreter: /usr/bin/python2.7"
+        headers:
+          Content-Type: application/json
+        body_format: json
+      register: reg_awx_inventory
+
+    - name: Add host to dynamic inventory
+      add_host:
+        name: "{{ ec2_info.instances[0].private_ip_address }}"
+        groups: sap_app_server
+
+    - name: DNS A record
+      amazon.aws.route53:
+        state: present
+        private_zone: yes
+        zone: "lamapal.aws"
+        record: "{{ i_name + '.lamapal.aws' }}"
+        type: A
+        ttl: 300
+        value: "{{  ec2_info.instances[0].private_ip_address }}"
+        wait: true
+      register: route53_result_1
+
+    - name: Display DNS results
+      debug: var=route53_result_1
+
+    - name: DNS PTR record
+      amazon.aws.route53:
+        state: present
+        private_zone: yes
+        zone: "200.30.172.in-addr.arpa"
+        record: "{{  ec2_info.instances[0].private_ip_address.split('.')[3] }}.{{  ec2_info.instances[0].private_ip_address.split('.')[2] }}.{{  ec2_info.instances[0].private_ip_address.split('.')[1] }}.{{  ec2_info.instances[0].private_ip_address.split('.')[0] }}.in-addr.arpa"
+        type: PTR
+        ttl: 300
+        value: "{{ i_name + '.lamapal.aws' }}"
+        wait: true
+      register: route53_result_2
+
+    - name: Display PTR results
+      debug: var=route53_result_2
+
+- name: Run on new host
+  hosts: sap_app_server
+  vars:
+    ansible_python_interpreter: /usr/bin/python2.7
+  become: yes
+  tasks:
+    - name: "Check hostname"
+      command: "echo {{ i_name }}"
+      register: shell_out
+
+    - name: Print the output
+      debug:
+        msg: "{{ shell_out.stdout_lines }}"
+
+    - name: Set a hostname
+      ansible.builtin.hostname:
+        name: "{{ i_name }}"
+
+    - name: "MOUNT NFS SHARE"
+      command: "mount {{ lama_ip }}:/work /mnt"
+      register: shell_out
+
+    - name: Print the output
+      debug:
+        msg: "{{ shell_out.stdout_lines }}"
+
+    - name: "Upgrade hostagent and sapacext"
+      command: "/mnt/upgrade_hostagent.sh"
+      register: shell_out
+
+    - name: Print the output
+      debug:
+        msg: "{{ shell_out.stdout_lines }}"
+
+    - name: "UNMOUNT NFS SHARE"
+      command: "umount /mnt"
+      register: shell_out
+
+    - name: Print the output
+      debug:
+        msg: "{{ shell_out.stdout_lines }}"
+
+    - name: Set target host variables for next play
+      set_fact:
+        target_ip: "{{ ansible_default_ipv4.address }}"
+        target_host: "{{ i_name }}"
+
+    - name: add variables to dummy host
+      add_host:
+        name: "variable_holder"
+        shared_variable1:  "{{ target_ip }}"
+        shared_variable2:  "{{ target_host }}"
+
+    - name: Print target IP address
+      debug:
+        var: target_ip
+
+
+- name: Run on LaMa host
+  hosts: "{{ lama_ip }}"
+  gather_facts: true
+  become: yes
+  vars:
+    my_target_ip: "{{ hostvars['variable_holder']['shared_variable1'] }}"
+    my_target_host: "{{ hostvars['variable_holder']['shared_variable2'] }}"
+  tasks:
+    - name: Update LaMa host file
+      ansible.builtin.lineinfile:
+        path: /etc/hosts
+        insertafter: '^#Ansible Inserts'
+        line: '{{ my_target_ip }} {{ my_target_host }}'
+        state: present
+        regexp: "^{{ my_target_ip|regex_escape() }}.*{{ my_target_host|regex_escape() }}$"
