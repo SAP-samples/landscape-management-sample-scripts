@@ -75,13 +75,13 @@ High-level diagram
 
 It should be noted that when using some cloud adapters in LaMa (such as the Cloud Manager for AWS), it is already possible to provision new cloud instances as part of tasks like "Install Application Server" or "System Copy". The choices presented are to use existing hosts (already discovered in LaMa as ready to use) or provision a new host. However, the built-in process does not always meet the requirements for some customers. For example, there may be a need to customize the instance further before it is used. In this case, this alternative approach with Ansible can be used.
 
-## Disclaimer
+### Disclaimer
 
 This procedure is published “AS IS”. Any software coding and/or code lines / strings (“Code”) included are only examples and are not intended to be used in any productive system environment. The Code is only intended to better explain and visualize the features of the SAP Landscape Management Automation Studio. No effort has been made to make the code production quality (e.g. security, error handling, robustness, etc). If you use any of the code shown, you are doing it at your own risk.
 
 Information in here could include technical inaccuracies or typographical errors. Changes may be periodically made.
 
-# Ansible Playbook
+## Ansible Playbook
 
 This is the [playbook on GitHub](https://github.com/SAP-samples/landscape-management-sample-scripts/blob/main/custom-operation_ansible_provision_new_host/YAML_Files/lama_create_vm.yaml).
 
@@ -141,25 +141,25 @@ The playbook has multiple plays within it and summarized below:
 	
 Prior to configuring LaMa, test the template directly in AWX/Tower web UI. If it successfully creates a new instance then move to the LaMa section. Terminate the test instance.
 
-# LaMa Provider Definitions
+## LaMa Provider Definitions
 WIP
 
  
 
-# LaMa Custom Operation
+## LaMa Custom Operation
 WIP
 
  
 
-# LaMa Provisioning Blueprint
+## LaMa Provisioning Blueprint
 WIP
 
  
 
-# LaMa Custom Process
+## LaMa Custom Process
 WIP
 
  
 
-# LaMa Custom Process Execution
+## LaMa Custom Process Execution
 WIP
