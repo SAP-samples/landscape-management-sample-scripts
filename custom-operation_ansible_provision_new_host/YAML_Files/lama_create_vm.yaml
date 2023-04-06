@@ -137,7 +137,6 @@
       debug:
         var: target_ip
 
-
 - name: Run on LaMa host
   hosts: "{{ lama_ip }}"
   gather_facts: true
