@@ -55,14 +55,13 @@ If you are not a regular GitHub user and just want to download the XML files, pl
 
 ## Procedure
 
-Introduction
-In this blog, I will cover the scenario of provisioning a new instance in a public cloud directly from LaMa and then using this new host to perform an operation (e.g. new HANA replication tier, add application server, system copy/clone).
+What is covered is the scenario of provisioning a new instance in a public cloud directly from LaMa and then using this new host to perform an operation (e.g. new HANA replication tier, add application server, system copy/clone).
 
-I will use AWS (Amazon Web Services) as the public cloud and Ansible AWX (upstream open source project for Ansible Tower) to launch the playbook for the creation of a new instance. The same approach also applies to Azure or GCP. The module used in the playbook can be replaced by those for the other cloud providers and some other minor adjustments.
+AWS (Amazon Web Services) is used as the public cloud and Ansible AWX (upstream open source project for Ansible Tower) to launch the playbook for the creation of a new instance. The same approach also applies to Azure or GCP. The module used in the playbook can be replaced by those for the other cloud providers and some other minor adjustments.
 
-In a previous blog, I described the outbound REST API feature of LaMa that was first added in SP25.
+In this [blog](https://blogs.sap.com/2022/11/30/introducing-the-rest-api-provider-in-sap-landscape-management-enterprise-edition-lama/), I described the outbound REST API feature of LaMa that was first added in SP25.
 
-The ansible playbook (for use in Ansible AWS or Tower) and the LaMa configuration (provider definitions, custom operations, etc.) are available at GitHub.
+The ansible playbook (for use in Ansible AWS or Tower) and the LaMa configuration (provider definitions, custom operations, etc.) are available here.
 
 Scenario Description
 The REST provider that is part of automation studio will be used to trigger the new host provisioning via Ansible AWX, followed by a discovery and then using the new host to provision an additional application server.
@@ -85,7 +84,7 @@ Information in here could include technical inaccuracies or typographical errors
 
 This is the [playbook on GitHub](https://github.com/SAP-samples/landscape-management-sample-scripts/blob/main/custom-operation_ansible_provision_new_host/YAML_Files/lama_create_vm.yaml).
 
-The blog does not cover how to configure Ansible AWX.
+The procedure does not cover how to configure Ansible AWX.
 
 The following key configuration steps need to be performed and relevant guides consulted. These are just the configuration steps performed for this scenario and not necessarily the only way to do it.
 
