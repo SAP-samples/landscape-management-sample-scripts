@@ -136,7 +136,7 @@ The playbook has multiple plays within it and summarized below:
     - Stores the hostname and IP address of new instance in variables to be used in next play
 - Play on LaMa Host
     - Update /etc/hosts file: Uses the ansible.builtin.lineinfile module and the variables set in previous play
-    -     - Not mandatory if using DNS but good to have anyway
+         - Not mandatory if using DNS but good to have anyway
 	
 Prior to configuring LaMa, test the template directly in AWX/Tower web UI. If it successfully creates a new instance then move to the LaMa section. Terminate the test instance.
 
