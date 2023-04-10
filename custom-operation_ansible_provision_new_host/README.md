@@ -9,6 +9,12 @@
 
 5. [How_To_Download](#How_To_Download)
 
+6. [Procedure Summary](#Procedure)
+
+7. [Ansible Playbook](#Ansible_Playbook)
+
+8. [LaMa Configuration](#tag)
+
 
 
 
@@ -65,7 +71,6 @@ In this [blog](https://blogs.sap.com/2022/11/30/introducing-the-rest-api-provide
 
 The ansible playbook (for use in Ansible AWS or Tower) and the LaMa configuration (provider definitions, custom operations, etc.) are available here.
 
-Scenario Description
 The REST provider that is part of automation studio will be used to trigger the new host provisioning via Ansible AWX, followed by a discovery and then using the new host to provision an additional application server.
 
 It is also possible to use the newly added host for other provisioning tasks such as system copy or new replication tier.
@@ -79,7 +84,7 @@ This procedure is published “AS IS”. Any software coding and/or code lines /
 
 Information in here could include technical inaccuracies or typographical errors. Changes may be periodically made.
 
-## Ansible Playbook
+## Ansible_Playbook
 
 This is the [playbook on GitHub](https://github.com/SAP-samples/landscape-management-sample-scripts/blob/main/custom-operation_ansible_provision_new_host/YAML_Files/lama_create_vm.yaml).
 
@@ -139,14 +144,14 @@ The playbook has multiple plays within it and summarized below:
 	
 Prior to configuring LaMa, test the template directly in AWX/Tower web UI. If it successfully creates a new instance then move to the LaMa section. Terminate the test instance.
 
-## LaMa Provider Definitions (calls to Ansible AWX/Tower)
-Refer to this blog section (link to be added) for details
+{#tag}
 
+## LaMa_Provider_Definitions_calls_to_Ansible_AWX
+Refer to this blog section (link to be added) for details
 
 ## LaMa Custom Operation: Create VM (call to Ansible AWX/Tower)
 Refer to this blog section (link to be added) for details
 
- 
 
 ## LaMa Provisioning Blueprint
 Refer to this blog section (link to be added) for details
