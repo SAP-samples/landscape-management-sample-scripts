@@ -146,7 +146,7 @@ Prior to configuring LaMa, test the template directly in AWX/Tower web UI. If it
 
 <a name="tag"></a>
 
-## LaMa_Provider_Definitions_calls_to_Ansible_AWX
+## LaMa Provider Definitions: Calls to Ansible AWX/Tower
 Refer to this blog section (link to be added) for details
 
 ## LaMa Custom Operation: Create VM (call to Ansible AWX/Tower)
