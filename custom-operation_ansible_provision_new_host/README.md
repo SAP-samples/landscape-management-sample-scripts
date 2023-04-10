@@ -144,7 +144,7 @@ The playbook has multiple plays within it and summarized below:
 	
 Prior to configuring LaMa, test the template directly in AWX/Tower web UI. If it successfully creates a new instance then move to the LaMa section. Terminate the test instance.
 
-{#tag}
+<a name="tag"></a>
 
 ## LaMa_Provider_Definitions_calls_to_Ansible_AWX
 Refer to this blog section (link to be added) for details
