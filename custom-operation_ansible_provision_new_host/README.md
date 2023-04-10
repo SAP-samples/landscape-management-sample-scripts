@@ -15,10 +15,12 @@
 ## Description
 Ansible playbook that can be launched from LaMa to provision a new host on AWS to be used as a target for adding new application server.
 
-WIP - More details to follow soon
+The diagram below illustrates at a high-level how the flow looks like.
 
-## Prerequisites
-WIP - More details to follow soon
+<img src="https://blogs.sap.com/wp-content/uploads/2023/04/AS-Install.png"
+     alt="LaMa AS Install"
+     style="float: left; margin-right: 10px;" />
+
 
 ## YAML_File
 The file lama_create_vm.yaml (located in YAML_Files folder) is the playbook used by Ansible AWX or Ansible Tower. AWX/Tower URL:
@@ -55,7 +57,7 @@ If you are not a regular GitHub user and just want to download the XML files, pl
 
 ## Procedure
 
-What is covered is the scenario of provisioning a new instance in a public cloud directly from LaMa and then using this new host to perform an operation (e.g. new HANA replication tier, add application server, system copy/clone).
+What is covered here includes the scenario of provisioning a new virtual machine instance in a public cloud directly from LaMa and then using this new host to perform an operation (e.g. new HANA replication tier, add application server, system copy/clone).
 
 AWS (Amazon Web Services) is used as the public cloud and Ansible AWX (upstream open source project for Ansible Tower) to launch the playbook for the creation of a new instance. The same approach also applies to Azure or GCP. The module used in the playbook can be replaced by those for the other cloud providers and some other minor adjustments.
 
@@ -68,9 +70,6 @@ The REST provider that is part of automation studio will be used to trigger the 
 
 It is also possible to use the newly added host for other provisioning tasks such as system copy or new replication tier.
 
-The diagram below illustrates at a high-level how the flow looks like.
-
-High-level diagram
 
 It should be noted that when using some cloud adapters in LaMa (such as the Cloud Manager for AWS), it is already possible to provision new cloud instances as part of tasks like "Install Application Server" or "System Copy". The choices presented are to use existing hosts (already discovered in LaMa as ready to use) or provision a new host. However, the built-in process does not always meet the requirements for some customers. For example, there may be a need to customize the instance further before it is used. In this case, this alternative approach with Ansible can be used.
 
@@ -140,25 +139,43 @@ The playbook has multiple plays within it and summarized below:
 	
 Prior to configuring LaMa, test the template directly in AWX/Tower web UI. If it successfully creates a new instance then move to the LaMa section. Terminate the test instance.
 
-## LaMa Provider Definitions
-WIP
+## LaMa Provider Definitions (calls to Ansible AWX/Tower)
+Refer to this blog section (link to be added) for details
 
- 
 
-## LaMa Custom Operation
-WIP
+## LaMa Custom Operation: Create VM (call to Ansible AWX/Tower)
+Refer to this blog section (link to be added) for details
 
  
 
 ## LaMa Provisioning Blueprint
-WIP
+Refer to this blog section (link to be added) for details
 
- 
+## LaMa Provider Definitions (LaMa to LaMa REST API call)
+Refer to this blog section (link to be added) for details
+
+## LaMa Provider Definition for Hook: Sleep 120 Seconds
+Refer to this blog section (link to be added) for details
+
+## LaMa Custom Operation: Discover VM (LaMa to LaMa REST API calls)
+Refer to this blog section (link to be added) for details
+
+## LaMa Custom Operation: Trigger Blueprint (LaMa to LaMa REST API calls)
+Refer to this blog section (link to be added) for details
+
+## LaMa Custom Hook
+Refer to this blog section (link to be added) for details
 
 ## LaMa Custom Process
-WIP
+<img src="https://blogs.sap.com/wp-content/uploads/2023/04/custom_process-1.png"
+     alt="LaMa Ansible Custom Process"
+     style="float: left; margin-right: 10px;" />
 
- 
+Refer to this blog section (link to be added) for details
 
 ## LaMa Custom Process Execution
-WIP
+<img src="https://blogs.sap.com/wp-content/uploads/2023/04/execution_custom_process-2.png"
+     alt="Custom Process Execution"
+     style="float: left; margin-right: 10px;" />
+	 
+Refer to this blog section (link to be added) for details
