@@ -147,40 +147,40 @@ Prior to configuring LaMa, test the template directly in AWX/Tower web UI. If it
 <a name="tag"></a>
 
 ## LaMa Provider Definitions: Calls to Ansible AWX/Tower
-Refer to this blog section (link to be added) for details
+Refer to this [blog section](https://blogs.sap.com/2023/04/12/sap-landscape-management-lama-ansible-tower-awx-provisioning-of-cloud-instances-with-rest-api/#tag1) for details
 
 ## LaMa Custom Operation: Create VM (call to Ansible AWX/Tower)
-Refer to this blog section (link to be added) for details
+Refer to this [blog section](https://blogs.sap.com/2023/04/12/sap-landscape-management-lama-ansible-tower-awx-provisioning-of-cloud-instances-with-rest-api/#tag2) for details
 
 
 ## LaMa Provisioning Blueprint
-Refer to this blog section (link to be added) for details
+Refer to this [blog section](https://blogs.sap.com/2023/04/12/sap-landscape-management-lama-ansible-tower-awx-provisioning-of-cloud-instances-with-rest-api/#tag3) for details
 
 ## LaMa Provider Definitions (LaMa to LaMa REST API call)
-Refer to this blog section (link to be added) for details
+Refer to this [blog section](https://blogs.sap.com/2023/04/12/sap-landscape-management-lama-ansible-tower-awx-provisioning-of-cloud-instances-with-rest-api/#tag4) for details
 
 ## LaMa Provider Definition for Hook: Sleep 120 Seconds
-Refer to this blog section (link to be added) for details
+Refer to this [blog section](https://blogs.sap.com/2023/04/12/sap-landscape-management-lama-ansible-tower-awx-provisioning-of-cloud-instances-with-rest-api/#tag5) for details
 
 ## LaMa Custom Operation: Discover VM (LaMa to LaMa REST API calls)
-Refer to this blog section (link to be added) for details
+Refer to this [blog section](https://blogs.sap.com/2023/04/12/sap-landscape-management-lama-ansible-tower-awx-provisioning-of-cloud-instances-with-rest-api/#tag6) for details
 
 ## LaMa Custom Operation: Trigger Blueprint (LaMa to LaMa REST API calls)
-Refer to this blog section (link to be added) for details
+Refer to this [blog section](https://blogs.sap.com/2023/04/12/sap-landscape-management-lama-ansible-tower-awx-provisioning-of-cloud-instances-with-rest-api/#tag7) for details
 
 ## LaMa Custom Hook
-Refer to this blog section (link to be added) for details
+Refer to this [blog section](https://blogs.sap.com/2023/04/12/sap-landscape-management-lama-ansible-tower-awx-provisioning-of-cloud-instances-with-rest-api/#tag8) for details
 
 ## LaMa Custom Process
 <img src="https://blogs.sap.com/wp-content/uploads/2023/04/custom_process-1.png"
      alt="LaMa Ansible Custom Process"
      style="float: left; margin-right: 10px;" />
 
-Refer to this blog section (link to be added) for details
+Refer to this [blog section](https://blogs.sap.com/2023/04/12/sap-landscape-management-lama-ansible-tower-awx-provisioning-of-cloud-instances-with-rest-api/#tag9) for details
 
 ## LaMa Custom Process Execution
 <img src="https://blogs.sap.com/wp-content/uploads/2023/04/execution_custom_process-2.png"
      alt="Custom Process Execution"
      style="float: left; margin-right: 10px;" />
 	 
-Refer to this blog section (link to be added) for details
+Refer to this [blog section](https://blogs.sap.com/2023/04/12/sap-landscape-management-lama-ansible-tower-awx-provisioning-of-cloud-instances-with-rest-api/#tag10) for details
