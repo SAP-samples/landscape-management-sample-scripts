@@ -37,7 +37,7 @@
 <p dir="auto">Playbook: custom-operation_ansible_provision_new_host/YAML_Files/lama_create_vm.yaml</p>
 
 <h2 dir="auto" tabindex="-1"><a id="user-content-xml_files" class="anchor" href="https://github.com/SAP-samples/landscape-management-sample-scripts/tree/main/custom-operation_ansible_provision_new_host#xml_files" aria-hidden="true"></a>XML_Files</h2>
-<p dir="auto">The XML files (located in XML_Files folder) can be imported into LaMa and have the providers definitions, custom operations, and process described in the samples sections of the above blog (to be added).</p>
+<p dir="auto">The XML files (located in <a href="https://github.com/SAP-samples/landscape-management-sample-scripts/tree/main/custom-operation_ansible_provision_new_host/XML_Files">XML_Files folder</a>) can be imported into LaMa and have the providers definitions, custom operations, and process described in the samples sections of the above blog (to be added).</p>
 
 <h2 dir="auto" tabindex="-1"><a id="user-content-how_to_download" class="anchor" href="https://github.com/SAP-samples/landscape-management-sample-scripts/tree/main/custom-operation_ansible_provision_new_host#how_to_download" aria-hidden="true"></a>How_To_Download</h2>
 <p dir="auto">If you are not a regular GitHub user and just want to download the XML files, please follow the below steps (in contrast to using clone):</p>
