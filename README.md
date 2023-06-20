@@ -21,7 +21,7 @@ Most of those custom operations are executable standalone. Some are only executa
 ### SAP Landscape Management Cloud
 With the introduction of public REST APIs and events inside **SAP Landscape Management Cloud**, there will be more and more examples on combining this cloud solution with external services like SAP Event Mesh, SAP BTP runtimes, or 3rd party tools.
 
-As REST APIs and events are newly introduced to SAP Landscape Management Cloud, please provide us with feedback and expectations towards future endpoints and events via the [discussions](https://github.com/SAP-samples/landscape-management-sample-scripts/discussions).
+As [REST APIs](https://api.sap.com/package/SAPLandscapeManagementCloud/overview) and [events](https://api.sap.com/package/SAPLandscapeManagementCloudBusinessEvents/overview) are newly introduced to SAP Landscape Management Cloud, please provide us with feedback and expectations towards future endpoints and events via the [discussions](https://github.com/SAP-samples/landscape-management-sample-scripts/discussions).
 
 ## How to obtain support
 [Create an issue](https://github.com/SAP-samples/landscape-management-sample-scripts/issues) in this repository if you find a bug or have questions about the content.
