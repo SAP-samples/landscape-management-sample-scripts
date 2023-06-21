@@ -15,7 +15,7 @@
 ## Description
 In LaMa Cloud, REST API (inbound) has been added as a new feature. This new feature is described in the blog below that includes samples.
 
-[SAP Landscape Management Cloud (LaMa Cloud) REST API Sample](https://blogs.sap.com/2023/06/21/sap-andscape-management-cloud-lama-cloud-rest-api-sample)
+[SAP Landscape Management Cloud (LaMa Cloud) REST API Sample](https://blogs.sap.com/2023/06/21/sap-landscape-management-cloud-lama-cloud-rest-api-sample/)
 
 The blog covers the following:
 
