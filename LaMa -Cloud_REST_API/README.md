@@ -3,7 +3,7 @@
 
 2. [Prerequisites Local Machine](#Prerequisites_local_machine)
 
-3. [Prerequisites SAP BTP CLoud Foundry](#Prerequisites_BTP_Cloud_Foundry)
+3. [Prerequisites SAP BTP Cloud Foundry](#Prerequisites_BTP_Cloud_Foundry)
 
 3. [Samples](#Samples)
 
