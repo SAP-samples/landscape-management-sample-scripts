@@ -15,7 +15,7 @@
 ## Description
 The blog link below covers the configuration for Event Routing feature in LaMa Cloud
 
-[SAP Landscape Management Cloud (LaMa Cloud): Event Routing and Posting to MS Teams](https://blogs.sap.com/2023/06/21/sap-landscape-management-cloud-lama-cloud-rest-api-sample/)
+[SAP Landscape Management Cloud (LaMa Cloud): Event Routing and Posting to MS Teams](https://blogs.sap.com/2023/07/10/sap-landscape-management-cloud-lama-cloud-event-routing-and-posting-to-ms-teams/)
 
 
 
@@ -28,7 +28,7 @@ Code sample is stored here as described below.
 
 ## Prerequisites_local_machine
 
-- % pip install flask
+- Not applicable as SSL is needed
 
 ## Prerequisites_BTP_Cloud_Foundry
 
@@ -49,6 +49,6 @@ If you are not a regular GitHub user and just want to download the XML files, pl
 - Go to the top level of the samples repository (https://github.com/SAP-samples/landscape-management-sample-scripts)
 - Click on the Green button ("<> Code")
 - Download ZIP
-- In the ZIP file the samples files are located in LaMa-Cloud_REST_API/samples
+- In the ZIP file the samples files are located in LaMa-Cloud_Event_Routing/samples
 
 
