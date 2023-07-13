@@ -1,6 +1,6 @@
 ---
 applications:
-- name: my_receiver
+- name: my-receiver
   random-route: true
   path: ./
   memory: 128M

@@ -1,8 +1,10 @@
+import os
 import json
 import requests
 from flask import Flask, request
 
 app = Flask(__name__)
+port = int(os.environ.get('PORT', 3000))
 
 stored_payload = None
 teams_webhook_url = '<URL for MS Teams Webhook>'
@@ -34,3 +36,6 @@ def send_to_teams(payload):
 
     if response.status_code != 200:
         raise Exception('Failed to send payload to Teams. Status Code: {}'.format(response.status_code))
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=port)
