@@ -24,7 +24,7 @@ def get_access_token():
     access_token = response.json()['access_token']
     return access_token
 
-# Recursive function to extract "name" entries from JSON data
+# Extract "name" entries from JSON data and reformat
 def extract_names(data):
     names = []
 
@@ -41,6 +41,8 @@ def extract_names(data):
     elif isinstance(data, list):
         for item in data:
             names.extend(extract_names(item))
+
+    names.sort()
 
     return names
 
@@ -60,11 +62,27 @@ def get_data():
  
     names = extract_names(data)
 
-    # Create a list of lists containing the names
-    table_data = [[name] for name in names]
+    # Create a dictionary so that we can split SID and COMPONENTS
+    sid_components = {}
+
+    for name in names:
+        parts = name.split(":")
+        if len(parts) > 1:
+            sid = parts[0].strip()
+            component = parts[1].strip()
+            if sid in sid_components:
+                sid_components[sid].append(component)
+            else:
+                sid_components[sid] = [component]
+
+    # Create a list of lists containing "SID" and "COMPONENTS" columns
+    table_data = [["SID", "COMPONENTS"]]
+
+    for sid, components in sid_components.items():
+        table_data.append([sid, ', '.join(components)])
 
     # Generate the HTML table with borders
-    table_html = tabulate(table_data, headers=["SYSTEMS"], tablefmt="html")
+    table_html = tabulate(table_data, headers="firstrow", tablefmt="html")
 
     # Render the template with the table
     return render_template('table.html', table_html=table_html)
