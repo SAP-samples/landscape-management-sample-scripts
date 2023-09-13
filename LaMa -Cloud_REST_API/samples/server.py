@@ -8,10 +8,10 @@ app = Flask(__name__)
 port = int(os.environ.get('PORT', 3000))
 
 # OAuth 2 client configuration
-client_id = "sb-xsuaa-api-following-Naeem-API-b4e9b9b8-f129-4a27-aecc-af482d88b383!b233698|xsuaa-api-test!b81170"
-client_secret = "Naeem-API-b4e9b9b8-f129-4a27-aecc-af482d88b383$nlYGHImnUPre9mQoNcfsjxVd6GgU_X5WzcB45hWPqlY="
-token_url = 'https://test-exe-multi-acc-expl-testing.authentication.eu10.hana.ondemand.com/oauth/token'
-api_url = 'https://api-lama-cloud-test.cfapps.eu10.hana.ondemand.com/v1/systems'
+client_id = "xx"
+client_secret = "xx"
+token_url = 'xx'
+api_url = 'https://api.lama.cloud.sap/v1/systems'
 
 # Get access token using client credentials
 def get_access_token():
