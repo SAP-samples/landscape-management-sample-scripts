@@ -25,7 +25,7 @@ As [REST APIs](https://api.sap.com/package/SAPLandscapeManagementCloud/overview)
 
 ## SAP TechEd Virtual Jump-Start session for "SAP System Management with SAP BTP and SAP Landscape Management Cloud"
 
-[This jumpp-start session](https://github.com/SAP-samples/teched2023-XP287v/) introduces attendees to the cloud solution SAP Landscape Management Cloud and lets participants explore its capabilities. It will walk through the solution at first and afterwards take the next step towards automatisation of SAP operations by combining SAP Landscape Management Cloud with services of SAP Business Technology Platform.
+[This jump-start session](https://github.com/SAP-samples/teched2023-XP287v/) introduces attendees to the cloud solution SAP Landscape Management Cloud and lets participants explore its capabilities. It will walk through the solution at first and afterwards take the next step towards automatisation of SAP operations by combining SAP Landscape Management Cloud with services of SAP Business Technology Platform.
 
 At the end of the session, you will understand how SAP Landscape Management Cloud can support you in automating and optimizing your SAP system management and you will have an idea how to consume its APIs and how to being alerted once unexpected failures in automated tasks occur.
 
